@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="Switch.TestSwitch"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="http://xamarin.com/schemas/2020/toolkit"
+             BackgroundColor="Transparent">
+    <ContentView.Content>
+        <Grid>
+            <Grid.Effects>
+                <effects:LifeCycleEffect Loaded="Loaded" Unloaded="Unloaded" />
+            </Grid.Effects>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+            </Grid.GestureRecognizers>
+
+            <Frame x:Name="BackgroundFrame"
+                   Padding="0"
+                   BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   BorderColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   Content="{Binding BackgroundContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   CornerRadius="20"
+                   HasShadow="False"
+                   HeightRequest="40"
+                   HorizontalOptions="Center"
+                   IsClippedToBounds="True"
+                   VerticalOptions="Center"
+                   WidthRequest="70" />
+            <Frame x:Name="SwitchFrame"
+                   Padding="0"
+                   BackgroundColor="White"
+                   Content="{Binding SwitchContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   CornerRadius="18"
+                   HasShadow="False"
+                   HeightRequest="36"
+                   HorizontalOptions="Center"
+                   IsClippedToBounds="True"
+                   VerticalOptions="Center"
+                   WidthRequest="36" />
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

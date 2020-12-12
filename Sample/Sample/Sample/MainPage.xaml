@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Sample.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Beige">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Button Clicked="Button_Clicked" Text="Samples" />
+            <Button Clicked="Button_Clicked_1" Text="Test" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
