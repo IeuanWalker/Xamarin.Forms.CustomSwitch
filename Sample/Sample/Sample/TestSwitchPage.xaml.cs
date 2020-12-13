@@ -9,11 +9,6 @@ namespace Sample
         public TestSwitchPage()
         {
             InitializeComponent();
-
-            OnOffSwitch.SwitchPanUpdate += (sender, e) =>
-            {
-                Flex.TranslationX = -(e.TranslateX + e.xRef);
-            };
         }
     }
 }

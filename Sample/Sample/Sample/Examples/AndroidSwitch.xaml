@@ -13,4 +13,5 @@
                    KnobLimit="Max"
                    KnobWidth="34"
                    VerticalOptions="Center"
+                   VibrateDuration="20"
                    WidthRequest="60" />

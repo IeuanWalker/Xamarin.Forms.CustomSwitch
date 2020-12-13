@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<switch:TestSwitch x:Class="Sample.Examples.OnOffTabSwitch"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                   xmlns:switch="clr-namespace:Switch;assembly=Switch"
+                   BackgroundColor="White"
+                   CornerRadius="5"
+                   HeightRequest="40"
+                   KnobHeight="40"
+                   KnobLimit="Boundary"
+                   KnobWidth="60"
+                   VibrateDuration="20"
+                   WidthRequest="120">
+    <switch:TestSwitch.Border>
+        <pancakeView:Border Thickness="5" Color="DarkGray" />
+    </switch:TestSwitch.Border>
+    <switch:TestSwitch.KnobBorder>
+        <pancakeView:Border Thickness="5" />
+    </switch:TestSwitch.KnobBorder>
+    <switch:TestSwitch.BackgroundContent>
+        <FlexLayout JustifyContent="SpaceEvenly">
+            <Label FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Text="OFF"
+                   TextColor="DarkGray"
+                   VerticalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   WidthRequest="60" />
+            <Label FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Text="ON"
+                   TextColor="DarkGray"
+                   VerticalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   WidthRequest="60" />
+        </FlexLayout>
+    </switch:TestSwitch.BackgroundContent>
+
+    <switch:TestSwitch.KnobContent>
+        <StackLayout Orientation="Horizontal">
+            <FlexLayout x:Name="Flex"
+                        JustifyContent="SpaceEvenly"
+                        WidthRequest="120">
+                <Label FontAttributes="Bold"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       Text="OFF"
+                       TextColor="#dd2424"
+                       VerticalOptions="FillAndExpand"
+                       VerticalTextAlignment="Center"
+                       WidthRequest="60" />
+                <Label FontAttributes="Bold"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       Text="ON"
+                       TextColor="#46d744"
+                       VerticalOptions="FillAndExpand"
+                       VerticalTextAlignment="Center"
+                       WidthRequest="60" />
+            </FlexLayout>
+        </StackLayout>
+    </switch:TestSwitch.KnobContent>
+</switch:TestSwitch>

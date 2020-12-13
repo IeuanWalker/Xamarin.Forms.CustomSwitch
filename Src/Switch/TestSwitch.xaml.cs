@@ -1,7 +1,10 @@
 ﻿using Switch.Enums;
 using Switch.Events;
 using System;
+using System.Diagnostics;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
 namespace Switch
@@ -32,16 +35,22 @@ namespace Switch
             get => (double)GetValue(KnobWidthProperty);
             set => SetValue(KnobWidthProperty, value);
         }
-        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(TestSwitch), Color.Navy);
+        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(TestSwitch), Color.Default);
         public Color KnobColor
         {
             get => (Color)GetValue(KnobColorProperty);
             set => SetValue(KnobColorProperty, value);
         }
-        public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(float), typeof(TestSwitch), 0f);
-        public float KnobCornerRadius
+        public static readonly BindableProperty KnobBorderProperty = BindableProperty.Create(nameof(KnobBorder), typeof(Border), typeof(TestSwitch), default(Border));
+        public Border KnobBorder
         {
-            get => (float)GetValue(KnobCornerRadiusProperty);
+            get { return (Border)GetValue(KnobBorderProperty); }
+            set { SetValue(KnobBorderProperty, value); }
+        }
+        public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(CornerRadius), typeof(TestSwitch), default(CornerRadius));
+        public CornerRadius KnobCornerRadius
+        {
+            get => (CornerRadius)GetValue(KnobCornerRadiusProperty);
             set => SetValue(KnobCornerRadiusProperty, value);
         }
         public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
@@ -56,18 +65,25 @@ namespace Switch
             get => (double)GetValue(WidthRequestProperty);
             set => SetValue(WidthRequestProperty, value);
         }
-        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(TestSwitch), 0f);
-        public float CornerRadius
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(TestSwitch), default(CornerRadius));
+        public CornerRadius CornerRadius
         {
-            get => (float)GetValue(CornerRadiusProperty);
+            get => (CornerRadius)GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
         }
 
-        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(TestSwitch), Color.Yellow);
+        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(TestSwitch), Color.Default);
         public new Color BackgroundColor
         {
             get => (Color)GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
+        }
+
+        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(Border), typeof(Border), typeof(TestSwitch), default(Border));
+        public Border Border
+        {
+            get => (Border)GetValue(BorderColorProperty);
+            set => SetValue(BorderColorProperty, value);
         }
         public static readonly BindableProperty BackgroundContentProperty = BindableProperty.Create(nameof(BackgroundContent), typeof(View), typeof(TestSwitch));
         public View BackgroundContent
@@ -80,6 +96,26 @@ namespace Switch
         {
             get => (View)GetValue(KnobContentProperty);
             set => SetValue(KnobContentProperty, value);
+        }
+
+        public static readonly BindableProperty HorizontalKnobMarginProperty = BindableProperty.Create(nameof(HorizontalKnobMargin), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
+        public double HorizontalKnobMargin
+        {
+            get => (double)GetValue(HorizontalKnobMarginProperty);
+            set => SetValue(HorizontalKnobMarginProperty, value);
+        }
+        public static readonly BindableProperty KnobLimitProperty = BindableProperty.Create(nameof(KnobLimit), typeof(KnobLimitEnum), typeof(TestSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
+        public KnobLimitEnum KnobLimit
+        {
+            get => (KnobLimitEnum)GetValue(KnobLimitProperty);
+            set => SetValue(KnobLimitProperty, value);
+        }
+
+        public static readonly BindableProperty VibrateDurationProperty = BindableProperty.Create(nameof(VibrateDuration), typeof(double), typeof(TestSwitch), 0d);
+        public double VibrateDuration
+        {
+            get => (double)GetValue(VibrateDurationProperty);
+            set => SetValue(VibrateDurationProperty, value);
         }
 
         #endregion
@@ -114,14 +150,26 @@ namespace Switch
 
         private static void IsToggledChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable is TestSwitch view)
-            {
-                if ((bool)newValue && view.CurrentState != SwitchStateEnum.Right)
-                    view.GoToRight();
-                else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
-                    view.GoToLeft();
+            if (!(bindable is TestSwitch view)) return;
 
-                view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
+
+            if ((bool)newValue && view.CurrentState != SwitchStateEnum.Right)
+                view.GoToRight();
+            else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
+                view.GoToLeft();
+
+            view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
+
+            try
+            {
+                if (view.VibrateDuration > 0)
+                {
+                    Vibration.Vibrate(view.VibrateDuration);
+                }
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
         }
 
@@ -240,23 +288,6 @@ namespace Switch
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        public static readonly BindableProperty KnobLimitProperty = BindableProperty.Create(nameof(KnobLimit), typeof(KnobLimitEnum), typeof(TestSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
-        public KnobLimitEnum KnobLimit
-        {
-            get => (KnobLimitEnum)GetValue(KnobLimitProperty);
-            set => SetValue(KnobLimitProperty, value);
-        }
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
@@ -284,7 +315,7 @@ namespace Switch
             switch (view.KnobLimit)
             {
                 case KnobLimitEnum.Boundary:
-                    view._xRef = ((view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2) - 1;
+                    view._xRef = ((view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2) - view.HorizontalKnobMargin;
                     break;
                 case KnobLimitEnum.Centered:
                     view._xRef = (view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2 - (view.BackgroundFrame.WidthRequest / 2 - view.KnobFrame.WidthRequest) / 2;

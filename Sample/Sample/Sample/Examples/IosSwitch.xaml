@@ -5,12 +5,13 @@
                    xmlns:switch="clr-namespace:Switch;assembly=Switch"
                    CornerRadius="20"
                    HeightRequest="40"
-                   IsToggled="True"
+                   HorizontalKnobMargin="1"
                    KnobColor="White"
                    KnobCornerRadius="18"
                    KnobHeight="36"
                    KnobLimit="Boundary"
                    KnobWidth="36"
+                   VibrateDuration="20"
                    WidthRequest="70">
     <switch:TestSwitch.BackgroundContent>
         <StackLayout Orientation="Horizontal">

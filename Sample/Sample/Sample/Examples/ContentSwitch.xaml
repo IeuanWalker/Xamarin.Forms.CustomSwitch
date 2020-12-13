@@ -11,6 +11,7 @@
                    KnobHeight="60"
                    KnobLimit="Boundary"
                    KnobWidth="60"
+                   VibrateDuration="20"
                    WidthRequest="120">
     <switch:TestSwitch.BackgroundContent>
         <FlexLayout Margin="15,0,15,0"

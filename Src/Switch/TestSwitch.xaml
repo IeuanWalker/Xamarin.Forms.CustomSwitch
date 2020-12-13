@@ -3,6 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              BackgroundColor="Transparent">
     <ContentView.Content>
         <Grid>
@@ -14,30 +15,28 @@
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
             </Grid.GestureRecognizers>
 
-            <Frame x:Name="BackgroundFrame"
-                   Padding="0"
-                   BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   BorderColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   Content="{Binding BackgroundContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   CornerRadius="{Binding CornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   HasShadow="False"
-                   HeightRequest="{Binding HeightRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   HorizontalOptions="Center"
-                   IsClippedToBounds="True"
-                   VerticalOptions="Center"
-                   WidthRequest="{Binding WidthRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
-            <Frame x:Name="KnobFrame"
-                   Padding="0"
-                   BackgroundColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   BorderColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   Content="{Binding knobContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   CornerRadius="{Binding KnobCornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   HasShadow="False"
-                   HeightRequest="{Binding KnobHeight, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   HorizontalOptions="Center"
-                   IsClippedToBounds="True"
-                   VerticalOptions="Center"
-                   WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
+            <pancakeView:PancakeView x:Name="BackgroundFrame"
+                                     Padding="0"
+                                     BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     Border="{Binding Border, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     Content="{Binding BackgroundContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     CornerRadius="{Binding CornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     HeightRequest="{Binding HeightRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     HorizontalOptions="Center"
+                                     IsClippedToBounds="True"
+                                     VerticalOptions="Center"
+                                     WidthRequest="{Binding WidthRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
+            <pancakeView:PancakeView x:Name="KnobFrame"
+                                     Padding="0"
+                                     BackgroundColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     Border="{Binding KnobBorder, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     Content="{Binding knobContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     CornerRadius="{Binding KnobCornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     HeightRequest="{Binding KnobHeight, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     HorizontalOptions="Center"
+                                     IsClippedToBounds="True"
+                                     VerticalOptions="Center"
+                                     WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
 
         </Grid>
     </ContentView.Content>

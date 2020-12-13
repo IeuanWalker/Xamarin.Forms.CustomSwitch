@@ -3,14 +3,14 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:examples="clr-namespace:Sample.Examples;assembly=Sample"
-             xmlns:switch="clr-namespace:Switch;assembly=Switch"
              BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="iOS" />
+                       Text="iOS"
+                       TextColor="DarkGray" />
                 <examples:IosSwitch IsToggled="False" />
                 <examples:IosSwitch IsToggled="True" />
 
@@ -21,7 +21,8 @@
 
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="Android" />
+                       Text="Android"
+                       TextColor="DarkGray" />
                 <examples:AndroidSwitch IsToggled="False" />
                 <examples:AndroidSwitch IsToggled="True" />
 
@@ -32,7 +33,8 @@
 
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="Content" />
+                       Text="Content"
+                       TextColor="DarkGray" />
                 <examples:ContentSwitch IsToggled="False" />
                 <examples:ContentSwitch IsToggled="True" />
 
@@ -43,63 +45,10 @@
 
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="off/ on" />
-                <switch:TestSwitch x:Name="OnOffSwitch"
-                                   BackgroundColor="White"
-                                   CornerRadius="5"
-                                   HeightRequest="50"
-                                   KnobColor="DarkRed"
-                                   KnobCornerRadius="5"
-                                   KnobHeight="50"
-                                   KnobLimit="Boundary"
-                                   KnobWidth="60"
-                                   WidthRequest="120">
-                    <switch:TestSwitch.BackgroundContent>
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontAttributes="Bold"
-                                   HorizontalOptions="FillAndExpand"
-                                   HorizontalTextAlignment="Center"
-                                   Text="OFF"
-                                   TextColor="DarkGray"
-                                   VerticalOptions="FillAndExpand"
-                                   VerticalTextAlignment="Center" />
-                            <Label FontAttributes="Bold"
-                                   FontSize="12"
-                                   HorizontalOptions="FillAndExpand"
-                                   HorizontalTextAlignment="Center"
-                                   Text="ON"
-                                   TextColor="DarkGray"
-                                   VerticalOptions="FillAndExpand"
-                                   VerticalTextAlignment="Center" />
-                        </StackLayout>
-                    </switch:TestSwitch.BackgroundContent>
-
-                    <switch:TestSwitch.KnobContent>
-                        <StackLayout Orientation="Horizontal">
-                            <FlexLayout x:Name="Flex"
-                                        Margin="15,0,15,0"
-                                        AlignItems="Center"
-                                        JustifyContent="SpaceBetween"
-                                        WidthRequest="90">
-                                <Label FontAttributes="Bold"
-                                       HorizontalOptions="FillAndExpand"
-                                       HorizontalTextAlignment="Center"
-                                       Text="OFF"
-                                       TextColor="DarkGray"
-                                       VerticalOptions="FillAndExpand"
-                                       VerticalTextAlignment="Center" />
-                                <Label FontAttributes="Bold"
-                                       FontSize="12"
-                                       HorizontalOptions="FillAndExpand"
-                                       HorizontalTextAlignment="Center"
-                                       Text="ON"
-                                       TextColor="DarkGray"
-                                       VerticalOptions="FillAndExpand"
-                                       VerticalTextAlignment="Center" />
-                            </FlexLayout>
-                        </StackLayout>
-                    </switch:TestSwitch.KnobContent>
-                </switch:TestSwitch>
+                       Text="off/ on"
+                       TextColor="DarkGray" />
+                <examples:OnOffTabSwitch IsToggled="False" />
+                <examples:OnOffTabSwitch IsToggled="True" />
 
             </StackLayout>
         </ScrollView>
