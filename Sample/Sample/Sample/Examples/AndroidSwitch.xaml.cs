@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Switch;
+﻿using Switch;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,8 +25,9 @@ namespace Sample.Examples
 
                 KnobColor = ColorAnimation(fromSwitchColor, toSwitchColor, t);
                 BackgroundColor = ColorAnimation(fromColor, toColor, t);
-           };
+            };
         }
+
         private Color ColorAnimation(Color fromColor, Color toColor, double t)
         {
             return Color.FromRgba(fromColor.R + t * (toColor.R - fromColor.R),

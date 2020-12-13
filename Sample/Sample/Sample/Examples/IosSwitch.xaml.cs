@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Switch;
+﻿using Switch;
+using System.Diagnostics.CodeAnalysis;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

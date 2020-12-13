@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Android", "Sample\Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample\Sample.iOS\Sample.iOS.csproj", "{FBD745CE-0186-413D-BB32-9C1A1D4DD332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample\Sample.csproj", "{047E0977-6907-4602-BEAD-EF755EBA52D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample\Sample\Sample.csproj", "{047E0977-6907-4602-BEAD-EF755EBA52D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch", "Src\Switch\Switch.csproj", "{3DE1CE08-2C75-4E8E-ABF3-3E6A44F46820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Switch", "Src\Switch\Switch.csproj", "{3DE1CE08-2C75-4E8E-ABF3-3E6A44F46820}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{A61342E5-9D0E-4A0A-9E59-982B0045464C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +158,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{637C3ABA-1150-468A-AF62-78CCEB1D2074} = {A61342E5-9D0E-4A0A-9E59-982B0045464C}
+		{FDF93E7F-8F8F-4DEB-9214-80D0E92680B8} = {A61342E5-9D0E-4A0A-9E59-982B0045464C}
+		{FBD745CE-0186-413D-BB32-9C1A1D4DD332} = {A61342E5-9D0E-4A0A-9E59-982B0045464C}
+		{047E0977-6907-4602-BEAD-EF755EBA52D2} = {A61342E5-9D0E-4A0A-9E59-982B0045464C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {494FA127-DF1D-42E7-83ED-D472C208B710}

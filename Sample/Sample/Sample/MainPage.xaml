@@ -2,11 +2,54 @@
 <ContentPage x:Class="Sample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:examples="clr-namespace:Sample.Examples"
              BackgroundColor="Beige">
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Button Clicked="Button_Clicked" Text="Samples" />
-            <Button Clicked="Button_Clicked_1" Text="Test" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="iOS"
+                       TextColor="DarkGray" />
+                <examples:IosSwitch IsToggled="False" />
+                <examples:IosSwitch IsToggled="True" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Android"
+                       TextColor="DarkGray" />
+                <examples:AndroidSwitch IsToggled="False" />
+                <examples:AndroidSwitch IsToggled="True" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Content"
+                       TextColor="DarkGray" />
+                <examples:ContentSwitch IsToggled="False" />
+                <examples:ContentSwitch IsToggled="True" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="off/ on"
+                       TextColor="DarkGray" />
+                <examples:OnOffTabSwitch IsToggled="False" />
+                <examples:OnOffTabSwitch IsToggled="True" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

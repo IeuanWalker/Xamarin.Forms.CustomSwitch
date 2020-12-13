@@ -37,7 +37,6 @@
                                      IsClippedToBounds="True"
                                      VerticalOptions="Center"
                                      WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
-
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -11,22 +11,21 @@ namespace Sample.Examples
         {
             InitializeComponent();
             SwitchPanUpdate += (sender, e) =>
-           {
-               Flex.TranslationX = -(e.TranslateX + e.xRef);
+            {
+                Flex.TranslationX = -(e.TranslateX + e.xRef);
 
-               Color fromColorLight = IsToggled ? Color.FromHex("#cdf4cc") : Color.FromHex("#f7cccc");
-               Color toColorLight = IsToggled ? Color.FromHex("#f7cccc") : Color.FromHex("#cdf4cc");
+                Color fromColorLight = IsToggled ? Color.FromHex("#cdf4cc") : Color.FromHex("#f7cccc");
+                Color toColorLight = IsToggled ? Color.FromHex("#f7cccc") : Color.FromHex("#cdf4cc");
 
-               Color fromColorDark = IsToggled ? Color.FromHex("#46d744") : Color.FromHex("#dd2424");
-               Color toColorDark = IsToggled ? Color.FromHex("#dd2424") : Color.FromHex("#46d744");
+                Color fromColorDark = IsToggled ? Color.FromHex("#46d744") : Color.FromHex("#dd2424");
+                Color toColorDark = IsToggled ? Color.FromHex("#dd2424") : Color.FromHex("#46d744");
 
-               double t = e.Percentage * 0.01;
+                double t = e.Percentage * 0.01;
 
-
-               KnobCornerRadius = IsToggled ? new CornerRadius(0, 5, 0, 5) : new CornerRadius(5, 0, 5, 0);
-               KnobColor = ColorAnimation(fromColorLight, toColorLight, t);
-               KnobBorder.Color = ColorAnimation(fromColorDark, toColorDark, t);
-           };
+                KnobCornerRadius = IsToggled ? new CornerRadius(0, 5, 0, 5) : new CornerRadius(5, 0, 5, 0);
+                KnobColor = ColorAnimation(fromColorLight, toColorLight, t);
+                KnobBorder.Color = ColorAnimation(fromColorDark, toColorDark, t);
+            };
         }
 
         private Color ColorAnimation(Color fromColor, Color toColor, double t)
