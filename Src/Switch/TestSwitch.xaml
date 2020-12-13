@@ -7,7 +7,7 @@
     <ContentView.Content>
         <Grid>
             <Grid.Effects>
-                <effects:LifeCycleEffect Loaded="Loaded" Unloaded="Unloaded" />
+                <effects:LifeCycleEffect Loaded="Loaded" />
             </Grid.Effects>
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -19,24 +19,25 @@
                    BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    BorderColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    Content="{Binding BackgroundContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   CornerRadius="20"
+                   CornerRadius="{Binding CornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    HasShadow="False"
-                   HeightRequest="40"
+                   HeightRequest="{Binding HeightRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    HorizontalOptions="Center"
                    IsClippedToBounds="True"
                    VerticalOptions="Center"
-                   WidthRequest="70" />
-            <Frame x:Name="SwitchFrame"
+                   WidthRequest="{Binding WidthRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
+            <Frame x:Name="KnobFrame"
                    Padding="0"
-                   BackgroundColor="White"
-                   Content="{Binding SwitchContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
-                   CornerRadius="18"
+                   BackgroundColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   BorderColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   Content="{Binding knobContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                   CornerRadius="{Binding KnobCornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    HasShadow="False"
-                   HeightRequest="36"
+                   HeightRequest="{Binding KnobHeight, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                    HorizontalOptions="Center"
                    IsClippedToBounds="True"
                    VerticalOptions="Center"
-                   WidthRequest="36" />
+                   WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
 
         </Grid>
     </ContentView.Content>

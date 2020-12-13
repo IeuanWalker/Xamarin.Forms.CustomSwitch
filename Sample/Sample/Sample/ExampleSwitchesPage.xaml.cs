@@ -13,10 +13,10 @@ namespace Sample
             _switchIos.SwitchPanUpdate += (sender, e) =>
             {
                 //Color Animation
-                var fromColor = e.IsToggled ? Color.FromHex("#4ACC64") : Color.FromHex("#EBECEC");
-                var toColor = e.IsToggled ? Color.FromHex("#EBECEC") : Color.FromHex("#4ACC64");
+                Color fromColor = e.IsToggled ? Color.FromHex("#4ACC64") : Color.FromHex("#EBECEC");
+                Color toColor = e.IsToggled ? Color.FromHex("#EBECEC") : Color.FromHex("#4ACC64");
 
-                var t = e.Percentage * 0.01;
+                double t = e.Percentage * 0.01;
 
                 _switchIos.BackgroundColor = ColorAnimation(fromColor, toColor, t);
             };

@@ -140,4 +140,16 @@
       <Name>Sample</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AndroidBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AndroidGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppleBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppleGray.png" />
+  </ItemGroup>
 </Project>

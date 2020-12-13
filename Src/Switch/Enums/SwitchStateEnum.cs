@@ -2,7 +2,6 @@
 {
     public enum SwitchStateEnum
     {
-        None,
         Left,
         Right
     }

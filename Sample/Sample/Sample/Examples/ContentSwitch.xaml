@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<switch:TestSwitch x:Class="Sample.Examples.ContentSwitch"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:switch="clr-namespace:Switch;assembly=Switch"
+                   BackgroundColor="LightGray"
+                   CornerRadius="25"
+                   HeightRequest="50"
+                   KnobColor="DarkRed"
+                   KnobCornerRadius="30"
+                   KnobHeight="60"
+                   KnobLimit="Boundary"
+                   KnobWidth="60"
+                   WidthRequest="120">
+    <switch:TestSwitch.BackgroundContent>
+        <FlexLayout Margin="15,0,15,0"
+                    AlignItems="Center"
+                    JustifyContent="SpaceBetween">
+            <Image Aspect="AspectFit"
+                   HeightRequest="30"
+                   HorizontalOptions="Center"
+                   Source="AndroidBlack"
+                   VerticalOptions="Center" />
+            <Image Aspect="AspectFit"
+                   HeightRequest="30"
+                   HorizontalOptions="Center"
+                   Source="AppleBlack"
+                   VerticalOptions="Center" />
+        </FlexLayout>
+    </switch:TestSwitch.BackgroundContent>
+
+    <switch:TestSwitch.KnobContent>
+        <StackLayout Orientation="Horizontal">
+            <FlexLayout x:Name="Flex"
+                        Margin="15,0,15,0"
+                        AlignItems="Center"
+                        JustifyContent="SpaceBetween"
+                        WidthRequest="90">
+                <Image Aspect="AspectFit"
+                       HeightRequest="30"
+                       HorizontalOptions="Center"
+                       Source="AndroidGray"
+                       VerticalOptions="Center" />
+                <Image Aspect="AspectFit"
+                       HeightRequest="30"
+                       HorizontalOptions="Center"
+                       Source="AppleGray"
+                       VerticalOptions="Center" />
+            </FlexLayout>
+        </StackLayout>
+    </switch:TestSwitch.KnobContent>
+</switch:TestSwitch>

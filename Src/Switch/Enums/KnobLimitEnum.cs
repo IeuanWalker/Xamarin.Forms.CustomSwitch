@@ -1,6 +1,6 @@
 ﻿namespace Switch.Enums
 {
-    public enum SwitchLimitEnum
+    public enum KnobLimitEnum
     {
         Boundary,
         Centered,

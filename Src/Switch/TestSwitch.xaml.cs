@@ -10,9 +10,8 @@ namespace Switch
     public partial class TestSwitch : ContentView
     {
         #region Properties
-        public SwitchStateEnum State { get; set; }
-        private double _xRef = 16;
-        private double TmpTotalX;
+        private SwitchStateEnum CurrentState { get; set; }
+        private double _xRef;
 
         public static readonly BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled), typeof(bool), typeof(TestSwitch), false, propertyChanged: IsToggledChanged);
         public bool IsToggled
@@ -33,17 +32,17 @@ namespace Switch
             get => (double)GetValue(KnobWidthProperty);
             set => SetValue(KnobWidthProperty, value);
         }
-        public static readonly BindableProperty SwitchColorProperty = BindableProperty.Create(nameof(SwitchColor), typeof(Color), typeof(TestSwitch), Color.Navy);
-        public Color SwitchColor
+        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(TestSwitch), Color.Navy);
+        public Color KnobColor
         {
-            get => (Color)GetValue(SwitchColorProperty);
-            set => SetValue(SwitchColorProperty, value);
+            get => (Color)GetValue(KnobColorProperty);
+            set => SetValue(KnobColorProperty, value);
         }
-        public static readonly BindableProperty SwitchCornerRadiusProperty = BindableProperty.Create(nameof(SwitchCornerRadius), typeof(float), typeof(TestSwitch), 0f);
-        public float SwitchCornerRadius
+        public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(float), typeof(TestSwitch), 0f);
+        public float KnobCornerRadius
         {
-            get => (float)GetValue(SwitchCornerRadiusProperty);
-            set => SetValue(SwitchCornerRadiusProperty, value);
+            get => (float)GetValue(KnobCornerRadiusProperty);
+            set => SetValue(KnobCornerRadiusProperty, value);
         }
         public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
         public new double HeightRequest
@@ -76,11 +75,11 @@ namespace Switch
             get => (View)GetValue(BackgroundContentProperty);
             set => SetValue(BackgroundContentProperty, value);
         }
-        public static readonly BindableProperty SwitchContentProperty = BindableProperty.Create(nameof(SwitchContent), typeof(View), typeof(TestSwitch));
-        public View SwitchContent
+        public static readonly BindableProperty KnobContentProperty = BindableProperty.Create(nameof(KnobContent), typeof(View), typeof(TestSwitch));
+        public View KnobContent
         {
-            get => (View)GetValue(SwitchContentProperty);
-            set => SetValue(SwitchContentProperty, value);
+            get => (View)GetValue(KnobContentProperty);
+            set => SetValue(KnobContentProperty, value);
         }
 
         #endregion
@@ -96,9 +95,9 @@ namespace Switch
         public TestSwitch()
         {
             InitializeComponent();
-            State = IsToggled ? SwitchStateEnum.Right : SwitchStateEnum.Left;
+            CurrentState = IsToggled ? SwitchStateEnum.Right : SwitchStateEnum.Left;
 
-            SwitchFrame.SetBinding(ContentProperty, new Binding(nameof(SwitchContent)) { Source = this, Mode = BindingMode.TwoWay });
+            KnobFrame.SetBinding(ContentProperty, new Binding(nameof(KnobContent)) { Source = this, Mode = BindingMode.TwoWay });
 
         }
         void Loaded(object sender, EventArgs e)
@@ -113,40 +112,34 @@ namespace Switch
             }
         }
 
-        void Unloaded(object sender, EventArgs e)
-        {
-
-
-        }
-
         private static void IsToggledChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (bindable is TestSwitch view)
             {
-                if ((bool)newValue && view.State != SwitchStateEnum.Right)
+                if ((bool)newValue && view.CurrentState != SwitchStateEnum.Right)
                     view.GoToRight();
-                else if (!(bool)newValue && view.State != SwitchStateEnum.Left)
+                else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
                     view.GoToLeft();
 
                 view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
             }
         }
 
-        private void GoToLeft(double pourcentage = 0.0)
+        private void GoToLeft(double percentage = 0.0)
         {
-            if (Math.Abs(SwitchFrame.TranslationX + _xRef) > 0.0)
+            if (Math.Abs(KnobFrame.TranslationX + _xRef) > 0.0)
             {
-                var dur = 100;
-                var duration = Convert.ToUInt32(dur - dur * pourcentage / 100);
+                int dur = 100;
+                uint duration = Convert.ToUInt32(dur - dur * percentage / 100);
                 this.AbortAnimation("SwitchAnimation");
                 new Animation
                 {
-                    {0, 1, new Animation(v => SwitchFrame.TranslationX = v, SwitchFrame.TranslationX, -_xRef)},
+                    {0, 1, new Animation(v => KnobFrame.TranslationX = v, KnobFrame.TranslationX, -_xRef)},
                     {0, 1, new Animation(v => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
                 }.Commit(this, "SwitchAnimation", 16, duration, null, (d, b) =>
                 {
                     this.AbortAnimation("SwitchAnimation");
-                    State = SwitchStateEnum.Left;
+                    CurrentState = SwitchStateEnum.Left;
                     IsToggled = false;
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
                 });
@@ -154,27 +147,27 @@ namespace Switch
             else
             {
                 this.AbortAnimation("SwitchAnimation");
-                State = SwitchStateEnum.Left;
+                CurrentState = SwitchStateEnum.Left;
                 IsToggled = false;
                 SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
             }
         }
 
-        private void GoToRight(double pourcentage = 0.0)
+        private void GoToRight(double percentage = 0.0)
         {
-            if (Math.Abs(SwitchFrame.TranslationX - _xRef) > 0.0)
+            if (Math.Abs(KnobFrame.TranslationX - _xRef) > 0.0)
             {
-                var dur = 100;
-                var duration = Convert.ToUInt32(dur - dur * pourcentage / 100);
+                int dur = 100;
+                uint duration = Convert.ToUInt32(dur - dur * percentage / 100);
                 this.AbortAnimation("SwitchAnimation");
                 new Animation
                 {
-                    {0, 1, new Animation(v => SwitchFrame.TranslationX = v, SwitchFrame.TranslationX, _xRef)},
+                    {0, 1, new Animation(v => KnobFrame.TranslationX = v, KnobFrame.TranslationX, _xRef)},
                     {0, 1, new Animation(v => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
                 }.Commit(this, "SwitchAnimation", 16, duration, null, (d, b) =>
                 {
                     this.AbortAnimation("SwitchAnimation");
-                    State = SwitchStateEnum.Right;
+                    CurrentState = SwitchStateEnum.Right;
                     IsToggled = true;
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
                 });
@@ -182,7 +175,7 @@ namespace Switch
             else
             {
                 this.AbortAnimation("SwitchAnimation");
-                State = SwitchStateEnum.Right;
+                CurrentState = SwitchStateEnum.Right;
                 IsToggled = true;
                 SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
             }
@@ -190,15 +183,15 @@ namespace Switch
 
         private void SendSwitchPanUpdatedEventArgs(PanStatusEnum status)
         {
-            var ev = new SwitchPanUpdatedEventArgs
+            SwitchPanUpdatedEventArgs ev = new SwitchPanUpdatedEventArgs
             {
                 xRef = _xRef,
                 IsToggled = IsToggled,
-                TranslateX = SwitchFrame.TranslationX,
+                TranslateX = KnobFrame.TranslationX,
                 Status = status,
                 Percentage = IsToggled
-                    ? Math.Abs(SwitchFrame.TranslationX - _xRef) / (2 * _xRef) * 100
-                    : Math.Abs(SwitchFrame.TranslationX + _xRef) / (2 * _xRef) * 100
+                    ? Math.Abs(KnobFrame.TranslationX - _xRef) / (2 * _xRef) * 100
+                    : Math.Abs(KnobFrame.TranslationX + _xRef) / (2 * _xRef) * 100
             };
 
             if (!double.IsNaN(ev.Percentage))
@@ -208,16 +201,17 @@ namespace Switch
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             SendSwitchPanUpdatedEventArgs(PanStatusEnum.Started);
-            if (State == SwitchStateEnum.Right)
+            if (CurrentState == SwitchStateEnum.Right)
                 GoToLeft();
             else
                 GoToRight();
         }
 
+        private double _tmpTotalX;
         private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
         {
             this.AbortAnimation("SwitchAnimation");
-            var dragX = e.TotalX - TmpTotalX;
+            double dragX = e.TotalX - _tmpTotalX;
 
             switch (e.StatusType)
             {
@@ -225,20 +219,20 @@ namespace Switch
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Started);
                     break;
                 case GestureStatus.Running:
-                    SwitchFrame.TranslationX = Math.Min(_xRef, Math.Max(-_xRef, SwitchFrame.TranslationX + dragX));
-                    TmpTotalX = e.TotalX;
+                    KnobFrame.TranslationX = Math.Min(_xRef, Math.Max(-_xRef, KnobFrame.TranslationX + dragX));
+                    _tmpTotalX = e.TotalX;
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running);
                     break;
                 case GestureStatus.Completed:
-                    var percentage = IsToggled
-                        ? Math.Abs(SwitchFrame.TranslationX - _xRef) / (2 * _xRef) * 100
-                        : Math.Abs(SwitchFrame.TranslationX + _xRef) / (2 * _xRef) * 100;
+                    double percentage = IsToggled
+                        ? Math.Abs(KnobFrame.TranslationX - _xRef) / (2 * _xRef) * 100
+                        : Math.Abs(KnobFrame.TranslationX + _xRef) / (2 * _xRef) * 100;
 
-                    if (SwitchFrame.TranslationX > 0)
+                    if (KnobFrame.TranslationX > 0)
                         GoToRight(percentage);
                     else
                         GoToLeft(percentage);
-                    TmpTotalX = 0;
+                    _tmpTotalX = 0;
                     break;
                 case GestureStatus.Canceled:
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Canceled);
@@ -257,11 +251,11 @@ namespace Switch
 
 
 
-        public static readonly BindableProperty SwitchLimitProperty = BindableProperty.Create(nameof(SwitchLimit), typeof(SwitchLimitEnum), typeof(TestSwitch), SwitchLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
-        public SwitchLimitEnum SwitchLimit
+        public static readonly BindableProperty KnobLimitProperty = BindableProperty.Create(nameof(KnobLimit), typeof(KnobLimitEnum), typeof(TestSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
+        public KnobLimitEnum KnobLimit
         {
-            get => (SwitchLimitEnum)GetValue(SwitchLimitProperty);
-            set => SetValue(SwitchLimitProperty, value);
+            get => (KnobLimitEnum)GetValue(KnobLimitProperty);
+            set => SetValue(KnobLimitProperty, value);
         }
         protected override void OnSizeAllocated(double width, double height)
         {
@@ -273,42 +267,33 @@ namespace Switch
         }
         private static void SizeRequestChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable is TestSwitch view)
+            if (!(bindable is TestSwitch view)) return;
+
+            // Knob
+            view.KnobFrame.WidthRequest = view.KnobWidth < 0.0 ? view.Width / 2 : view.KnobWidth;
+            view.KnobFrame.HeightRequest = view.KnobHeight < 0.0 ? view.Height : view.KnobHeight;
+
+            // Background
+            view.BackgroundFrame.WidthRequest = view.WidthRequest < 0.0 ? view.Width : view.WidthRequest;
+            view.BackgroundFrame.HeightRequest = view.HeightRequest < 0.0 ? view.Height : view.HeightRequest;
+
+            // View
+            view.SetBaseWidthRequest(Math.Max(view.BackgroundFrame.WidthRequest, view.KnobFrame.WidthRequest * 2));
+
+            // Calculate knob position
+            switch (view.KnobLimit)
             {
-                //Switch
-                view.SwitchFrame.WidthRequest =
-                    view.SwitchFrame.WidthRequest < 0.0 ? view.Width / 2 : view.SwitchFrame.WidthRequest;
-                view.SwitchFrame.HeightRequest =
-                    view.SwitchFrame.HeightRequest < 0.0 ? view.Height : view.SwitchFrame.HeightRequest;
-
-                //Background
-                view.BackgroundFrame.WidthRequest = view.WidthRequest < 0.0 ? view.Width : view.WidthRequest;
-                view.BackgroundFrame.HeightRequest = view.HeightRequest < 0.0 ? view.Height : view.HeightRequest;
-
-                //View
-                view.SetBaseWidthRequest(Math.Max(view.BackgroundFrame.WidthRequest,
-                    view.SwitchFrame.WidthRequest * 2));
-
-                switch (view.SwitchLimit)
-                {
-                    case SwitchLimitEnum.Boundary:
-                        view._xRef = ((view.BackgroundFrame.WidthRequest - view.SwitchFrame.WidthRequest) / 2) - 1;
-                        break;
-                    case SwitchLimitEnum.Centered:
-                        view._xRef = (view.BackgroundFrame.WidthRequest - view.SwitchFrame.WidthRequest) / 2
-                                     - (view.BackgroundFrame.WidthRequest / 2 - view.SwitchFrame.WidthRequest) / 2;
-                        break;
-                    case SwitchLimitEnum.Max:
-                        view._xRef = Math.Max(view.BackgroundFrame.WidthRequest, view.SwitchFrame.WidthRequest * 2) /
-                                     4;
-                        break;
-                }
-
-                if (view.State == SwitchStateEnum.Left)
-                    view.SwitchFrame.TranslationX = -view._xRef;
-                else
-                    view.SwitchFrame.TranslationX = view._xRef;
+                case KnobLimitEnum.Boundary:
+                    view._xRef = ((view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2) - 1;
+                    break;
+                case KnobLimitEnum.Centered:
+                    view._xRef = (view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2 - (view.BackgroundFrame.WidthRequest / 2 - view.KnobFrame.WidthRequest) / 2;
+                    break;
+                case KnobLimitEnum.Max:
+                    view._xRef = Math.Max(view.BackgroundFrame.WidthRequest, view.KnobFrame.WidthRequest * 2) / 4;
+                    break;
             }
+            view.KnobFrame.TranslationX = view.CurrentState == SwitchStateEnum.Left ? -view._xRef : view._xRef;
         }
         private void SetBaseWidthRequest(double widthRequest)
         {

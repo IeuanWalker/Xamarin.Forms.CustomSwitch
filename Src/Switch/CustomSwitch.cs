@@ -90,8 +90,8 @@ namespace Switch
         /// <summary>
         ///     The isToggled property.
         /// </summary>
-        public static readonly BindableProperty SwitchLimitProperty = BindableProperty.Create(nameof(SwitchLimit),
-            typeof(SwitchLimitEnum), typeof(CustomSwitch), SwitchLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty SwitchLimitProperty = BindableProperty.Create(nameof(KnobLimit),
+            typeof(KnobLimitEnum), typeof(CustomSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
 
         private readonly Frame _backgroundFrame;
         private readonly Frame SwitchFrame;
@@ -286,9 +286,9 @@ namespace Switch
         ///     Gets or sets the Switch's Limit.
         /// </summary>
         /// <value>The Toggled Position.</value>
-        public SwitchLimitEnum SwitchLimit
+        public KnobLimitEnum KnobLimit
         {
-            get => (SwitchLimitEnum)GetValue(SwitchLimitProperty);
+            get => (KnobLimitEnum)GetValue(SwitchLimitProperty);
             set => SetValue(SwitchLimitProperty, value);
         }
 
@@ -328,15 +328,15 @@ namespace Switch
                 view.SetBaseWidthRequest(Math.Max(view._backgroundFrame.WidthRequest,
                     view.SwitchFrame.WidthRequest * 2));
 
-                switch (view.SwitchLimit)
+                switch (view.KnobLimit)
                 {
-                    case SwitchLimitEnum.Boundary:
+                    case KnobLimitEnum.Boundary:
                         view._xRef = ((view._backgroundFrame.WidthRequest - view.SwitchFrame.WidthRequest) / 2) - view.HorizontalSwitchMargin;
                         break;
-                    case SwitchLimitEnum.Centered:
+                    case KnobLimitEnum.Centered:
                         view._xRef = (view._backgroundFrame.WidthRequest - view.SwitchFrame.WidthRequest) / 2 - (view._backgroundFrame.WidthRequest / 2 - view.SwitchFrame.WidthRequest) / 2;
                         break;
-                    case SwitchLimitEnum.Max:
+                    case KnobLimitEnum.Max:
                         view._xRef = Math.Max(view._backgroundFrame.WidthRequest, view.SwitchFrame.WidthRequest * 2) / 4;
                         break;
                 }
@@ -412,7 +412,7 @@ namespace Switch
 
         private void SendSwitchPanUpdatedEventArgs(PanStatusEnum status)
         {
-            var ev = new SwitchPanUpdatedEventArgs
+            SwitchPanUpdatedEventArgs ev = new SwitchPanUpdatedEventArgs
             {
                 xRef = _xRef,
                 IsToggled = IsToggled,

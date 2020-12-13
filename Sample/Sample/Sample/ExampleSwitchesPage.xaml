@@ -14,7 +14,7 @@
                                  SwitchColor="White"
                                  SwitchCornerRadius="18"
                                  SwitchHeightRequest="36"
-                                 SwitchLimit="Boundary"
+                                 KnobLimit="Boundary"
                                  SwitchWidthRequest="36"
                                  VerticalOptions="Center"
                                  WidthRequest="70">

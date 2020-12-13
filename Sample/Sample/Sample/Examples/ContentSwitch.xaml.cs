@@ -1,16 +1,17 @@
-﻿using Xamarin.Forms;
+﻿using Switch;
 using Xamarin.Forms.Xaml;
 
-namespace Sample
+namespace Sample.Examples
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TestSwitchPage : ContentPage
+    public partial class ContentSwitch : TestSwitch
     {
-        public TestSwitchPage()
+        public ContentSwitch()
         {
             InitializeComponent();
 
-            OnOffSwitch.SwitchPanUpdate += (sender, e) =>
+
+            SwitchPanUpdate += (sender, e) =>
             {
                 Flex.TranslationX = -(e.TranslateX + e.xRef);
             };
