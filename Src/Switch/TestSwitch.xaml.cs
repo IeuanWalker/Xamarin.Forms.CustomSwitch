@@ -215,8 +215,8 @@ namespace Switch
                 new Animation
                 {
                     {0, 1, new Animation(v => KnobFrame.TranslationX = v, KnobFrame.TranslationX, -_xRef)},
-                    {0, 1, new Animation(v => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
-                }.Commit(this, "SwitchAnimation", 16, Convert.ToUInt32(ToggleAnimationDuration - (ToggleAnimationDuration * percentage / 100)), null, (d, b) =>
+                    {0, 1, new Animation(_ => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
+                }.Commit(this, "SwitchAnimation", 16, Convert.ToUInt32(ToggleAnimationDuration - (ToggleAnimationDuration * percentage / 100)), null, (_, __) =>
                 {
                     this.AbortAnimation("SwitchAnimation");
                     CurrentState = SwitchStateEnum.Left;
@@ -241,8 +241,8 @@ namespace Switch
                 new Animation
                 {
                     {0, 1, new Animation(v => KnobFrame.TranslationX = v, KnobFrame.TranslationX, _xRef)},
-                    {0, 1, new Animation(v => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
-                }.Commit(this, "SwitchAnimation", 16, Convert.ToUInt32(ToggleAnimationDuration - (ToggleAnimationDuration * percentage / 100)), null, (d, b) =>
+                    {0, 1, new Animation(_ => SendSwitchPanUpdatedEventArgs(PanStatusEnum.Running))}
+                }.Commit(this, "SwitchAnimation", 16, Convert.ToUInt32(ToggleAnimationDuration - (ToggleAnimationDuration * percentage / 100)), null, (_, __) =>
                 {
                     this.AbortAnimation("SwitchAnimation");
                     CurrentState = SwitchStateEnum.Right;
@@ -263,7 +263,7 @@ namespace Switch
         {
             SwitchPanUpdatedEventArgs ev = new SwitchPanUpdatedEventArgs
             {
-                xRef = _xRef,
+                XRef = _xRef,
                 IsToggled = IsToggled,
                 TranslateX = KnobFrame.TranslationX,
                 Status = status,
@@ -354,7 +354,7 @@ namespace Switch
                     break;
 
                 case KnobLimitEnum.Centered:
-                    view._xRef = (view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2 - (view.BackgroundFrame.WidthRequest / 2 - view.KnobFrame.WidthRequest) / 2;
+                    view._xRef = ((view.BackgroundFrame.WidthRequest - view.KnobFrame.WidthRequest) / 2) - (((view.BackgroundFrame.WidthRequest / 2) - view.KnobFrame.WidthRequest) / 2);
                     break;
 
                 case KnobLimitEnum.Max:

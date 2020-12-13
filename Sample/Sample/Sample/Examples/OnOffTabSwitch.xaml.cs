@@ -12,7 +12,7 @@ namespace Sample.Examples
             InitializeComponent();
             SwitchPanUpdate += (sender, e) =>
             {
-                Flex.TranslationX = -(e.TranslateX + e.xRef);
+                Flex.TranslationX = -(e.TranslateX + e.XRef);
 
                 Color fromColorLight = IsToggled ? Color.FromHex("#cdf4cc") : Color.FromHex("#f7cccc");
                 Color toColorLight = IsToggled ? Color.FromHex("#f7cccc") : Color.FromHex("#cdf4cc");
@@ -30,10 +30,10 @@ namespace Sample.Examples
 
         private Color ColorAnimation(Color fromColor, Color toColor, double t)
         {
-            return Color.FromRgba(fromColor.R + t * (toColor.R - fromColor.R),
-                fromColor.G + t * (toColor.G - fromColor.G),
-                fromColor.B + t * (toColor.B - fromColor.B),
-                fromColor.A + t * (toColor.A - fromColor.A));
+            return Color.FromRgba(fromColor.R + (t * (toColor.R - fromColor.R)),
+                fromColor.G + (t * (toColor.G - fromColor.G)),
+                fromColor.B + (t * (toColor.B - fromColor.B)),
+                fromColor.A + (t * (toColor.A - fromColor.A)));
         }
     }
 }

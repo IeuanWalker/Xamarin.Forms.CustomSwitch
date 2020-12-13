@@ -1,7 +1,9 @@
-﻿using UIKit;
+﻿using System.Diagnostics.CodeAnalysis;
+using UIKit;
 
 namespace Sample.iOS
 {
+    [SuppressMessage("Design", "RCS1102:Make class static.", Justification = "<Pending>")]
     public class Application
     {
         // This is the main entry point of the application.

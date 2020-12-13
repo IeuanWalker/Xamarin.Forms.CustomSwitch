@@ -10,10 +10,7 @@ namespace Sample.Examples
         {
             InitializeComponent();
 
-            SwitchPanUpdate += (sender, e) =>
-            {
-                Flex.TranslationX = -(e.TranslateX + e.xRef);
-            };
+            SwitchPanUpdate += (sender, e) => Flex.TranslationX = -(e.TranslateX + e.XRef);
         }
     }
 }
