@@ -121,7 +121,7 @@ namespace Switch
             set => SetValue(KnobContentProperty, value);
         }
 
-        public static readonly BindableProperty HorizontalKnobMarginProperty = BindableProperty.Create(nameof(HorizontalKnobMargin), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty HorizontalKnobMarginProperty = BindableProperty.Create(nameof(HorizontalKnobMargin), typeof(double), typeof(TestSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public double HorizontalKnobMargin
         {

@@ -8,15 +8,5 @@ namespace Sample
         {
             InitializeComponent();
         }
-
-        private async void Button_Clicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new ExampleSwitchesPage());
-        }
-
-        private async void Button_Clicked_1(object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new TestSwitchPage());
-        }
     }
 }
