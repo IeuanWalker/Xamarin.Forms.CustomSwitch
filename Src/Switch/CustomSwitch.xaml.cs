@@ -26,7 +26,7 @@ namespace Switch
             set => SetValue(IsToggledProperty, value);
         }
 
-        public static readonly BindableProperty KnobHeightProperty = BindableProperty.Create(nameof(KnobHeight), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty KnobHeightProperty = BindableProperty.Create(nameof(KnobHeight), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public double KnobHeight
         {
@@ -34,7 +34,7 @@ namespace Switch
             set => SetValue(KnobHeightProperty, value);
         }
 
-        public static readonly BindableProperty KnobWidthProperty = BindableProperty.Create(nameof(KnobWidth), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty KnobWidthProperty = BindableProperty.Create(nameof(KnobWidth), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public double KnobWidth
         {
@@ -85,7 +85,7 @@ namespace Switch
             set => SetValue(KnobCornerRadiusProperty, value);
         }
 
-        public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public new double HeightRequest
         {
@@ -93,7 +93,7 @@ namespace Switch
             set => SetValue(HeightRequestProperty, value);
         }
 
-        public new static readonly BindableProperty WidthRequestProperty = BindableProperty.Create(nameof(WidthRequest), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public new static readonly BindableProperty WidthRequestProperty = BindableProperty.Create(nameof(WidthRequest), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public new double WidthRequest
         {
@@ -177,7 +177,7 @@ namespace Switch
             set => SetValue(KnobLimitProperty, value);
         }
 
-        public static readonly BindableProperty VibrateDurationProperty = BindableProperty.Create(nameof(VibrateDuration), typeof(double), typeof(CustomSwitch), 0d);
+        public static readonly BindableProperty VibrateDurationProperty = BindableProperty.Create(nameof(VibrateDuration), typeof(double), typeof(CustomSwitch), 20d);
 
         public double VibrateDuration
         {
