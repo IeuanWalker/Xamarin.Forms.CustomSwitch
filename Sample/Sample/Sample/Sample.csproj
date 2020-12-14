@@ -33,23 +33,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Examples\ThemeStyle2Switch.xaml.cs">
-      <DependentUpon>ThemeStyle2Switch.xaml</DependentUpon>
+    <Compile Update="Examples\Other5Switch.xaml.cs">
+      <DependentUpon>Other5Switch.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Examples\ThemeStyle1Switch.xaml.cs">
-      <DependentUpon>ThemeStyle1Switch.xaml</DependentUpon>
+    <Compile Update="Examples\Other1Switch.xaml.cs">
+      <DependentUpon>Other1Switch.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Examples\TickCrossSwitch.xaml.cs">
-      <DependentUpon>TickCrossSwitch.xaml</DependentUpon>
+    <Compile Update="Examples\Theme2Switch.xaml.cs">
+      <DependentUpon>Theme2Switch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\Theme1Switch.xaml.cs">
+      <DependentUpon>Theme1Switch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\Other4Switch.xaml.cs">
+      <DependentUpon>Other4Switch.xaml</DependentUpon>
     </Compile>
     <Compile Update="Examples\IosSwitch.xaml.cs">
       <DependentUpon>IosSwitch.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Examples\OnOffStyle2Switch.xaml.cs">
-      <DependentUpon>OnOffStyle2Switch.xaml</DependentUpon>
+    <Compile Update="Examples\Other3Switch.xaml.cs">
+      <DependentUpon>Other3Switch.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Examples\OnOffStyle1Switch.xaml.cs">
-      <DependentUpon>OnOffStyle1Switch.xaml</DependentUpon>
+    <Compile Update="Examples\Other2Switch.xaml.cs">
+      <DependentUpon>Other2Switch.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -57,13 +63,13 @@
     <EmbeddedResource Update="Examples\AndroidSwitch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Examples\ContentSwitch.xaml">
+    <EmbeddedResource Update="Examples\Other5Switch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\IosSwitch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Examples\OnOffTabSwitch.xaml">
+    <EmbeddedResource Update="Examples\Other1Switch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

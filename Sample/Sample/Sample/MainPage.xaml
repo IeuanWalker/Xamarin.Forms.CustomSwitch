@@ -37,11 +37,11 @@
                        HorizontalOptions="CenterAndExpand"
                        Text="Theme"
                        TextColor="DarkGray" />
-                <examples:ThemeStyle1Switch IsToggled="False" />
-                <examples:ThemeStyle1Switch IsToggled="True" />
+                <examples:Theme1Switch IsToggled="False" />
+                <examples:Theme1Switch IsToggled="True" />
 
-                <examples:ThemeStyle2Switch Margin="0,30,0,0" IsToggled="False" />
-                <examples:ThemeStyle2Switch IsToggled="True" />
+                <examples:Theme2Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:Theme2Switch IsToggled="True" />
 
                 <BoxView Margin="0,10"
                          BackgroundColor="LightGray"
@@ -53,23 +53,23 @@
                        HorizontalOptions="CenterAndExpand"
                        Text="Others"
                        TextColor="DarkGray" />
-                <examples:OnOffTabSwitch IsToggled="False" />
-                <examples:OnOffTabSwitch IsToggled="True" />
+                <examples:Other1Switch IsToggled="False" />
+                <examples:Other1Switch IsToggled="True" />
 
-                <examples:OnOffStyle1Switch Margin="0,30,0,0" IsToggled="False" />
-                <examples:OnOffStyle1Switch IsToggled="True" />
+                <examples:Other2Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:Other2Switch IsToggled="True" />
 
-                <examples:OnOffStyle2Switch Margin="0,30,0,0" IsToggled="False" />
-                <examples:OnOffStyle2Switch IsToggled="True" />
+                <examples:Other3Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:Other3Switch IsToggled="True" />
 
                 <StackLayout Padding="20"
                              BackgroundColor="White"
                              HorizontalOptions="FillAndExpand">
-                    <examples:TickCrossSwitch IsToggled="False" />
-                    <examples:TickCrossSwitch IsToggled="True" />
+                    <examples:Other4Switch IsToggled="False" />
+                    <examples:Other4Switch IsToggled="True" />
                 </StackLayout>
-                <examples:ContentSwitch IsToggled="False" />
-                <examples:ContentSwitch IsToggled="True" />
+                <examples:Other5Switch IsToggled="False" />
+                <examples:Other5Switch IsToggled="True" />
 
 
                 <BoxView Margin="0,10"

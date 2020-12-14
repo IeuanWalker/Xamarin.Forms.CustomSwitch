@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<switch:CustomSwitch x:Class="Sample.Examples.Theme2Switch"
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:switch="clr-namespace:Switch;assembly=Switch"
+                     BackgroundColor="White"
+                     CornerRadius="20"
+                     HeightRequest="40"
+                     HorizontalKnobMargin="2"
+                     KnobColor="White"
+                     KnobCornerRadius="18"
+                     KnobHeight="36"
+                     KnobLimit="Boundary"
+                     KnobWidth="36"
+                     VibrateDuration="20"
+                     WidthRequest="80">
+    <switch:CustomSwitch.BackgroundContent>
+        <FlexLayout Margin="15,0,15,0"
+                    AlignItems="Center"
+                    JustifyContent="SpaceBetween">
+            <Image Aspect="AspectFit"
+                   HeightRequest="40"
+                   HorizontalOptions="Center"
+                   Source="CloudBackground"
+                   VerticalOptions="Center" />
+            <Image Aspect="AspectFit"
+                   HeightRequest="40"
+                   HorizontalOptions="Center"
+                   Source="StarBackground"
+                   VerticalOptions="Center" />
+        </FlexLayout>
+    </switch:CustomSwitch.BackgroundContent>
+    <switch:CustomSwitch.KnobContent>
+        <StackLayout Orientation="Horizontal">
+            <FlexLayout x:Name="Flex"
+                        AlignItems="Center"
+                        JustifyContent="SpaceBetween"
+                        WidthRequest="60">
+                <Image Aspect="AspectFit"
+                       HeightRequest="40"
+                       HorizontalOptions="Center"
+                       Source="MoonSurface"
+                       VerticalOptions="Center" />
+                <Image Aspect="AspectFit"
+                       HeightRequest="40"
+                       HorizontalOptions="Center"
+                       Source=""
+                       VerticalOptions="Center" />
+            </FlexLayout>
+        </StackLayout>
+    </switch:CustomSwitch.KnobContent>
+</switch:CustomSwitch>
