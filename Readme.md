@@ -74,3 +74,6 @@ Install-Package IeuanWalker.CustomSwitch
 
 ### Other 5 ([xaml](/Sample/Sample/Sample/Examples/Other5Switch.xaml) / [code behind](/Sample/Sample/Sample/Examples/Other5Switch.xaml.cs))
 ![Other 5 example](Doc/Other5.gif)
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FXamarin.Forms.CustomSwitch.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FXamarin.Forms.CustomSwitch?ref=badge_shield)
