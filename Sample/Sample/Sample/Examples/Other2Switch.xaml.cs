@@ -1,7 +1,6 @@
 ﻿using Switch;
 using Switch.Helpers;
 using Xamarin.Forms;
-using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
 namespace Sample.Examples

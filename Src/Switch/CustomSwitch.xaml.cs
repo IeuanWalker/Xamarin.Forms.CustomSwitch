@@ -49,7 +49,9 @@ namespace Switch
             get => (Color)GetValue(KnobColorProperty);
             set => SetValue(KnobColorProperty, value);
         }
+
         public static readonly BindableProperty KnobColorGradientStopsProperty = BindableProperty.Create(nameof(KnobColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
+
         public GradientStopCollection KnobColorGradientStops
         {
             get { return (GradientStopCollection)GetValue(KnobColorGradientStopsProperty); }
@@ -57,6 +59,7 @@ namespace Switch
         }
 
         public static readonly BindableProperty KnobColorGradientStartPointProperty = BindableProperty.Create(nameof(KnobColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
+
         public Point KnobColorGradientStartPoint
         {
             get => (Point)GetValue(KnobColorGradientStartPointProperty);
@@ -64,11 +67,13 @@ namespace Switch
         }
 
         public static readonly BindableProperty KnobColorGradientEndPointProperty = BindableProperty.Create(nameof(KnobColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
+
         public Point KnobColorGradientEndPoint
         {
             get => (Point)GetValue(KnobColorGradientEndPointProperty);
             set => SetValue(KnobColorGradientEndPointProperty, value);
         }
+
         public static readonly BindableProperty KnobBorderProperty = BindableProperty.Create(nameof(KnobBorder), typeof(Border), typeof(CustomSwitch), default(Border));
 
         public Border KnobBorder
@@ -116,7 +121,9 @@ namespace Switch
             get => (Color)GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
         }
+
         public static readonly BindableProperty BackgroundColorGradientStopsProperty = BindableProperty.Create(nameof(BackgroundColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
+
         public GradientStopCollection BackgroundColorGradientStops
         {
             get { return (GradientStopCollection)GetValue(BackgroundColorGradientStopsProperty); }
@@ -124,6 +131,7 @@ namespace Switch
         }
 
         public static readonly BindableProperty BackgroundColorGradientStartPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
+
         public Point BackgroundColorGradientStartPoint
         {
             get => (Point)GetValue(BackgroundColorGradientStartPointProperty);
@@ -131,6 +139,7 @@ namespace Switch
         }
 
         public static readonly BindableProperty BackgroundColorGradientEndPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
+
         public Point BackgroundColorGradientEndPoint
         {
             get => (Point)GetValue(BackgroundColorGradientEndPointProperty);

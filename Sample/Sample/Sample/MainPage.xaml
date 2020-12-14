@@ -32,7 +32,6 @@
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand" />
 
-
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
                        Text="Theme"
@@ -47,7 +46,6 @@
                          BackgroundColor="LightGray"
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand" />
-
 
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
@@ -70,7 +68,6 @@
                 </StackLayout>
                 <examples:Other5Switch IsToggled="False" />
                 <examples:Other5Switch IsToggled="True" />
-
 
                 <BoxView Margin="0,10"
                          BackgroundColor="LightGray"

@@ -4,6 +4,5 @@
     {
         public const string Times = "\uf00d";
         public const string Check = "\uf00c";
-
     }
 }
