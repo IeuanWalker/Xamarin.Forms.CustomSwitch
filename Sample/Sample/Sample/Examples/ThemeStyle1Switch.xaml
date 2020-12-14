@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<switch:CustomSwitch x:Class="Sample.Examples.ThemeStyle1Switch"
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:switch="clr-namespace:Switch;assembly=Switch"
+                     BackgroundColor="White"
+                     CornerRadius="20"
+                     HeightRequest="40"
+                     KnobColor="Transparent"
+                     KnobCornerRadius="18"
+                     KnobHeight="36"
+                     KnobLimit="Boundary"
+                     KnobWidth="36"
+                     VibrateDuration="20"
+                     WidthRequest="80">
+    <switch:CustomSwitch.KnobContent>
+        <StackLayout Orientation="Horizontal">
+            <FlexLayout x:Name="Flex"
+                        Margin="10,0"
+                        AlignItems="Center"
+                        JustifyContent="SpaceBetween"
+                        WidthRequest="60">
+                <Image Aspect="AspectFit"
+                       HeightRequest="40"
+                       HorizontalOptions="Center"
+                       Source="SunIcon"
+                       VerticalOptions="Center" />
+                <Image Aspect="AspectFit"
+                       HeightRequest="40"
+                       HorizontalOptions="Center"
+                       Source="MoonIcon"
+                       VerticalOptions="Center" />
+            </FlexLayout>
+        </StackLayout>
+    </switch:CustomSwitch.KnobContent>
+</switch:CustomSwitch>

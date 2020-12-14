@@ -11,6 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\FA-Regular-400.otf" />
+    <None Remove="Resources\fa-regular-400.ttf" />
+    <None Remove="Resources\FA-Solid-900.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FA-Solid-900.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview2690" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1791-pre5" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -21,8 +33,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Examples\ThemeStyle2Switch.xaml.cs">
+      <DependentUpon>ThemeStyle2Switch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\ThemeStyle1Switch.xaml.cs">
+      <DependentUpon>ThemeStyle1Switch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\TickCrossSwitch.xaml.cs">
+      <DependentUpon>TickCrossSwitch.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Examples\IosSwitch.xaml.cs">
       <DependentUpon>IosSwitch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\OnOffStyle2Switch.xaml.cs">
+      <DependentUpon>OnOffStyle2Switch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\OnOffStyle1Switch.xaml.cs">
+      <DependentUpon>OnOffStyle1Switch.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

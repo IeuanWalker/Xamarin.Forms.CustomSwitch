@@ -3,7 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:examples="clr-namespace:Sample.Examples"
-             BackgroundColor="White">
+             BackgroundColor="#f7f7f7">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -23,6 +23,7 @@
                        HorizontalOptions="CenterAndExpand"
                        Text="Android"
                        TextColor="DarkGray" />
+
                 <examples:AndroidSwitch IsToggled="False" />
                 <examples:AndroidSwitch IsToggled="True" />
 
@@ -31,24 +32,50 @@
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand" />
 
+
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="Content"
+                       Text="Theme"
                        TextColor="DarkGray" />
-                <examples:ContentSwitch IsToggled="False" />
-                <examples:ContentSwitch IsToggled="True" />
+                <examples:ThemeStyle1Switch IsToggled="False" />
+                <examples:ThemeStyle1Switch IsToggled="True" />
+
+                <examples:ThemeStyle2Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:ThemeStyle2Switch IsToggled="True" />
 
                 <BoxView Margin="0,10"
                          BackgroundColor="LightGray"
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand" />
 
+
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="off/ on"
+                       Text="Others"
                        TextColor="DarkGray" />
                 <examples:OnOffTabSwitch IsToggled="False" />
                 <examples:OnOffTabSwitch IsToggled="True" />
+
+                <examples:OnOffStyle1Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:OnOffStyle1Switch IsToggled="True" />
+
+                <examples:OnOffStyle2Switch Margin="0,30,0,0" IsToggled="False" />
+                <examples:OnOffStyle2Switch IsToggled="True" />
+
+                <StackLayout Padding="20"
+                             BackgroundColor="White"
+                             HorizontalOptions="FillAndExpand">
+                    <examples:TickCrossSwitch IsToggled="False" />
+                    <examples:TickCrossSwitch IsToggled="True" />
+                </StackLayout>
+                <examples:ContentSwitch IsToggled="False" />
+                <examples:ContentSwitch IsToggled="True" />
+
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentView x:Class="Switch.TestSwitch"
+<ContentView x:Class="Switch.CustomSwitch"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="http://xamarin.com/schemas/2020/toolkit"
@@ -10,14 +10,12 @@
             <Grid.Effects>
                 <effects:LifeCycleEffect Loaded="Loaded" />
             </Grid.Effects>
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
-            </Grid.GestureRecognizers>
-
             <pancakeView:PancakeView x:Name="BackgroundFrame"
                                      Padding="0"
                                      BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientEndPoint="{Binding BackgroundColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientStartPoint="{Binding BackgroundColorGradientStartPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientStops="{Binding BackgroundColorGradientStops, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      Border="{Binding Border, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      Content="{Binding BackgroundContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      CornerRadius="{Binding CornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"
@@ -25,10 +23,18 @@
                                      HorizontalOptions="Center"
                                      IsClippedToBounds="True"
                                      VerticalOptions="Center"
-                                     WidthRequest="{Binding WidthRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
+                                     WidthRequest="{Binding WidthRequest, Source={RelativeSource AncestorType={x:Type ContentView}}}">
+                <pancakeView:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                </pancakeView:PancakeView.GestureRecognizers>
+            </pancakeView:PancakeView>
             <pancakeView:PancakeView x:Name="KnobFrame"
                                      Padding="0"
                                      BackgroundColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientEndPoint="{Binding KnobColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientStartPoint="{Binding KnobColorGradientStartPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                     BackgroundGradientStops="{Binding KnobColorGradientStops, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      Border="{Binding KnobBorder, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      Content="{Binding knobContent, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      CornerRadius="{Binding KnobCornerRadius, Source={RelativeSource AncestorType={x:Type ContentView}}}"

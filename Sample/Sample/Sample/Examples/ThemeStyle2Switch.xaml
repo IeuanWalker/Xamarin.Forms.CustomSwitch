@@ -1,55 +1,50 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<switch:CustomSwitch x:Class="Sample.Examples.ContentSwitch"
+<switch:CustomSwitch x:Class="Sample.Examples.ThemeStyle2Switch"
                      xmlns="http://xamarin.com/schemas/2014/forms"
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                     xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                      xmlns:switch="clr-namespace:Switch;assembly=Switch"
                      BackgroundColor="White"
-                     CornerRadius="25"
-                     HeightRequest="50"
-                     KnobColor="DeepPink"
-                     KnobCornerRadius="30"
-                     KnobHeight="60"
+                     CornerRadius="20"
+                     HeightRequest="40"
+                     HorizontalKnobMargin="2"
+                     KnobColor="White"
+                     KnobCornerRadius="18"
+                     KnobHeight="36"
                      KnobLimit="Boundary"
-                     KnobWidth="60"
+                     KnobWidth="36"
                      VibrateDuration="20"
-                     WidthRequest="120">
-    <switch:CustomSwitch.Border>
-        <pancakeView:Border Thickness="3" Color="DarkGray" />
-    </switch:CustomSwitch.Border>
+                     WidthRequest="80">
     <switch:CustomSwitch.BackgroundContent>
         <FlexLayout Margin="15,0,15,0"
                     AlignItems="Center"
                     JustifyContent="SpaceBetween">
             <Image Aspect="AspectFit"
-                   HeightRequest="30"
+                   HeightRequest="40"
                    HorizontalOptions="Center"
-                   Source="AndroidBlack"
+                   Source="CloudBackground"
                    VerticalOptions="Center" />
             <Image Aspect="AspectFit"
-                   HeightRequest="30"
+                   HeightRequest="40"
                    HorizontalOptions="Center"
-                   Source="AppleBlack"
+                   Source="StarBackground"
                    VerticalOptions="Center" />
         </FlexLayout>
     </switch:CustomSwitch.BackgroundContent>
-
     <switch:CustomSwitch.KnobContent>
         <StackLayout Orientation="Horizontal">
             <FlexLayout x:Name="Flex"
-                        Margin="15,0,15,0"
                         AlignItems="Center"
                         JustifyContent="SpaceBetween"
-                        WidthRequest="90">
+                        WidthRequest="60">
                 <Image Aspect="AspectFit"
-                       HeightRequest="30"
+                       HeightRequest="40"
                        HorizontalOptions="Center"
-                       Source="AndroidGray"
+                       Source="MoonSurface"
                        VerticalOptions="Center" />
                 <Image Aspect="AspectFit"
-                       HeightRequest="30"
+                       HeightRequest="40"
                        HorizontalOptions="Center"
-                       Source="AppleGray"
+                       Source=""
                        VerticalOptions="Center" />
             </FlexLayout>
         </StackLayout>

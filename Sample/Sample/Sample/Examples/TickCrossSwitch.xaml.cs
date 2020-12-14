@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Sample.Examples
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ContentSwitch : CustomSwitch
+    public partial class TickCrossSwitch : CustomSwitch
     {
-        public ContentSwitch()
+        public TickCrossSwitch()
         {
             InitializeComponent();
 

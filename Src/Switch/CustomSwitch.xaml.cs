@@ -6,18 +6,19 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
+using GradientStopCollection = Xamarin.Forms.PancakeView.GradientStopCollection;
 
 namespace Switch
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TestSwitch : ContentView
+    public partial class CustomSwitch : ContentView
     {
         #region Properties
 
         private SwitchStateEnum CurrentState { get; set; }
         private double _xRef;
 
-        public static readonly BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled), typeof(bool), typeof(TestSwitch), false, propertyChanged: IsToggledChanged);
+        public static readonly BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled), typeof(bool), typeof(CustomSwitch), false, propertyChanged: IsToggledChanged);
 
         public bool IsToggled
         {
@@ -25,7 +26,7 @@ namespace Switch
             set => SetValue(IsToggledProperty, value);
         }
 
-        public static readonly BindableProperty KnobHeightProperty = BindableProperty.Create(nameof(KnobHeight), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty KnobHeightProperty = BindableProperty.Create(nameof(KnobHeight), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
 
         public double KnobHeight
         {
@@ -33,7 +34,7 @@ namespace Switch
             set => SetValue(KnobHeightProperty, value);
         }
 
-        public static readonly BindableProperty KnobWidthProperty = BindableProperty.Create(nameof(KnobWidth), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty KnobWidthProperty = BindableProperty.Create(nameof(KnobWidth), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
 
         public double KnobWidth
         {
@@ -41,15 +42,34 @@ namespace Switch
             set => SetValue(KnobWidthProperty, value);
         }
 
-        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(TestSwitch), Color.Default);
+        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(CustomSwitch), Color.Default);
 
         public Color KnobColor
         {
             get => (Color)GetValue(KnobColorProperty);
             set => SetValue(KnobColorProperty, value);
         }
+        public static readonly BindableProperty KnobColorGradientStopsProperty = BindableProperty.Create(nameof(KnobColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
+        public GradientStopCollection KnobColorGradientStops
+        {
+            get { return (GradientStopCollection)GetValue(KnobColorGradientStopsProperty); }
+            set { SetValue(KnobColorGradientStopsProperty, value); }
+        }
 
-        public static readonly BindableProperty KnobBorderProperty = BindableProperty.Create(nameof(KnobBorder), typeof(Border), typeof(TestSwitch), default(Border));
+        public static readonly BindableProperty KnobColorGradientStartPointProperty = BindableProperty.Create(nameof(KnobColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
+        public Point KnobColorGradientStartPoint
+        {
+            get => (Point)GetValue(KnobColorGradientStartPointProperty);
+            set => SetValue(KnobColorGradientStartPointProperty, value);
+        }
+
+        public static readonly BindableProperty KnobColorGradientEndPointProperty = BindableProperty.Create(nameof(KnobColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
+        public Point KnobColorGradientEndPoint
+        {
+            get => (Point)GetValue(KnobColorGradientEndPointProperty);
+            set => SetValue(KnobColorGradientEndPointProperty, value);
+        }
+        public static readonly BindableProperty KnobBorderProperty = BindableProperty.Create(nameof(KnobBorder), typeof(Border), typeof(CustomSwitch), default(Border));
 
         public Border KnobBorder
         {
@@ -57,7 +77,7 @@ namespace Switch
             set { SetValue(KnobBorderProperty, value); }
         }
 
-        public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(CornerRadius), typeof(TestSwitch), default(CornerRadius));
+        public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(CornerRadius), typeof(CustomSwitch), default(CornerRadius));
 
         public CornerRadius KnobCornerRadius
         {
@@ -65,7 +85,7 @@ namespace Switch
             set => SetValue(KnobCornerRadiusProperty, value);
         }
 
-        public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public new static readonly BindableProperty HeightRequestProperty = BindableProperty.Create(nameof(HeightRequest), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
 
         public new double HeightRequest
         {
@@ -73,7 +93,7 @@ namespace Switch
             set => SetValue(HeightRequestProperty, value);
         }
 
-        public new static readonly BindableProperty WidthRequestProperty = BindableProperty.Create(nameof(WidthRequest), typeof(double), typeof(TestSwitch), -1d, propertyChanged: SizeRequestChanged);
+        public new static readonly BindableProperty WidthRequestProperty = BindableProperty.Create(nameof(WidthRequest), typeof(double), typeof(CustomSwitch), -1d, propertyChanged: SizeRequestChanged);
 
         public new double WidthRequest
         {
@@ -81,7 +101,7 @@ namespace Switch
             set => SetValue(WidthRequestProperty, value);
         }
 
-        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(TestSwitch), default(CornerRadius));
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(CustomSwitch), default(CornerRadius));
 
         public CornerRadius CornerRadius
         {
@@ -89,15 +109,35 @@ namespace Switch
             set => SetValue(CornerRadiusProperty, value);
         }
 
-        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(TestSwitch), Color.Default);
+        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(CustomSwitch), Color.Default);
 
         public new Color BackgroundColor
         {
             get => (Color)GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
         }
+        public static readonly BindableProperty BackgroundColorGradientStopsProperty = BindableProperty.Create(nameof(BackgroundColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
+        public GradientStopCollection BackgroundColorGradientStops
+        {
+            get { return (GradientStopCollection)GetValue(BackgroundColorGradientStopsProperty); }
+            set { SetValue(BackgroundColorGradientStopsProperty, value); }
+        }
 
-        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(Border), typeof(Border), typeof(TestSwitch), default(Border));
+        public static readonly BindableProperty BackgroundColorGradientStartPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
+        public Point BackgroundColorGradientStartPoint
+        {
+            get => (Point)GetValue(BackgroundColorGradientStartPointProperty);
+            set => SetValue(BackgroundColorGradientStartPointProperty, value);
+        }
+
+        public static readonly BindableProperty BackgroundColorGradientEndPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
+        public Point BackgroundColorGradientEndPoint
+        {
+            get => (Point)GetValue(BackgroundColorGradientEndPointProperty);
+            set => SetValue(BackgroundColorGradientEndPointProperty, value);
+        }
+
+        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(Border), typeof(Border), typeof(CustomSwitch), default(Border));
 
         public Border Border
         {
@@ -105,7 +145,7 @@ namespace Switch
             set => SetValue(BorderColorProperty, value);
         }
 
-        public static readonly BindableProperty BackgroundContentProperty = BindableProperty.Create(nameof(BackgroundContent), typeof(View), typeof(TestSwitch));
+        public static readonly BindableProperty BackgroundContentProperty = BindableProperty.Create(nameof(BackgroundContent), typeof(View), typeof(CustomSwitch));
 
         public View BackgroundContent
         {
@@ -113,7 +153,7 @@ namespace Switch
             set => SetValue(BackgroundContentProperty, value);
         }
 
-        public static readonly BindableProperty KnobContentProperty = BindableProperty.Create(nameof(KnobContent), typeof(View), typeof(TestSwitch));
+        public static readonly BindableProperty KnobContentProperty = BindableProperty.Create(nameof(KnobContent), typeof(View), typeof(CustomSwitch));
 
         public View KnobContent
         {
@@ -121,7 +161,7 @@ namespace Switch
             set => SetValue(KnobContentProperty, value);
         }
 
-        public static readonly BindableProperty HorizontalKnobMarginProperty = BindableProperty.Create(nameof(HorizontalKnobMargin), typeof(double), typeof(TestSwitch), 0d, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty HorizontalKnobMarginProperty = BindableProperty.Create(nameof(HorizontalKnobMargin), typeof(double), typeof(CustomSwitch), 0d, propertyChanged: SizeRequestChanged);
 
         public double HorizontalKnobMargin
         {
@@ -129,7 +169,7 @@ namespace Switch
             set => SetValue(HorizontalKnobMarginProperty, value);
         }
 
-        public static readonly BindableProperty KnobLimitProperty = BindableProperty.Create(nameof(KnobLimit), typeof(KnobLimitEnum), typeof(TestSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
+        public static readonly BindableProperty KnobLimitProperty = BindableProperty.Create(nameof(KnobLimit), typeof(KnobLimitEnum), typeof(CustomSwitch), KnobLimitEnum.Boundary, propertyChanged: SizeRequestChanged);
 
         public KnobLimitEnum KnobLimit
         {
@@ -137,7 +177,7 @@ namespace Switch
             set => SetValue(KnobLimitProperty, value);
         }
 
-        public static readonly BindableProperty VibrateDurationProperty = BindableProperty.Create(nameof(VibrateDuration), typeof(double), typeof(TestSwitch), 0d);
+        public static readonly BindableProperty VibrateDurationProperty = BindableProperty.Create(nameof(VibrateDuration), typeof(double), typeof(CustomSwitch), 0d);
 
         public double VibrateDuration
         {
@@ -145,7 +185,7 @@ namespace Switch
             set => SetValue(VibrateDurationProperty, value);
         }
 
-        public static readonly BindableProperty ToggleAnimationDurationProperty = BindableProperty.Create(nameof(ToggleAnimationDuration), typeof(int), typeof(TestSwitch), 100);
+        public static readonly BindableProperty ToggleAnimationDurationProperty = BindableProperty.Create(nameof(ToggleAnimationDuration), typeof(int), typeof(CustomSwitch), 100);
 
         public int ToggleAnimationDuration
         {
@@ -163,7 +203,7 @@ namespace Switch
 
         #endregion Events
 
-        public TestSwitch()
+        public CustomSwitch()
         {
             InitializeComponent();
             CurrentState = IsToggled ? SwitchStateEnum.Right : SwitchStateEnum.Left;
@@ -185,7 +225,7 @@ namespace Switch
 
         private static void IsToggledChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is TestSwitch view)) return;
+            if (!(bindable is CustomSwitch view)) return;
 
             if ((bool)newValue && view.CurrentState != SwitchStateEnum.Right)
                 view.GoToRight();
@@ -333,7 +373,7 @@ namespace Switch
 
         private static void SizeRequestChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is TestSwitch view)) return;
+            if (!(bindable is CustomSwitch view)) return;
 
             // Knob
             view.KnobFrame.WidthRequest = view.KnobWidth < 0.0 ? view.Width / 2 : view.KnobWidth;
