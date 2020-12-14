@@ -1,4 +1,6 @@
-# Xamarin.Forms.CustomSwitch
+# Xamarin.Forms.CustomSwitch [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.CustomSwitch)](https://www.nuget.org/packages/IeuanWalker.CustomSwitch) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.CustomSwitch)](https://www.nuget.org/packages/IeuanWalker.CustomSwitch) 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 This is a switch/ toggle control that would alow you to create any style switch you'd like.
 Taka a look at the sample app included within this project -
@@ -6,7 +8,7 @@ Taka a look at the sample app included within this project -
 ![Sample App](Doc/SampleApp.gif)
 
 ## How to use it?
-Install the [NuGet package]() into your shared project project
+Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.CustomSwitch) into your shared project project
 ```
 Install-Package IeuanWalker.CustomSwitch
 ```

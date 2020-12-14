@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>IeuanWalker.CustomSwitch</PackageId>
+    <Version>1.0.0-beta.1</Version>
+    <Authors>Ieuan Walker</Authors>
+    <Company>Ieuan Walker</Company>
+    <Product>IeuanWalker.CustomSwitch</Product>
+    <Description>A control that allows you to design any type of switch/ toggle for Xamarin.Forms</Description>
+    <PackageProjectUrl>https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Switch, toggle, xamarin, xamarin.forms</PackageTags>
+    <NeutralLanguage>English</NeutralLanguage>
+    <Copyright>Copyright Ieuan Walker</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
