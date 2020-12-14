@@ -32,10 +32,10 @@ Install-Package IeuanWalker.CustomSwitch
 | BackgroundColorGradientStartPoint | Defines the relative start point of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **0,0** |
 | BackgroundColorGradientEndPoint | Defines the relative endpoint of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **1,0** |
 | Border | The border for the switch. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Borders](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Borders) <br> Default value is **default(Border)** |
-| BackgroundContent | Sets the content of the switch. See [samples]() for an  idea how to utilise it  | Default value is **null** |
-| KnobContent | Sets the content of the knob. See [samples]() for an  idea how to utilise it | Default value is **null** |
+| BackgroundContent | Sets the content of the switch. See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it  | Default value is **null** |
+| KnobContent | Sets the content of the knob. See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | Default value is **null** |
 | HorizontalKnobMargin | Adds a margin to the max distance the knob can travel | Default value is **0** |
-| KnobLimit | Used to calculate the knob position. See [samples]() for an  idea how to utilise it | Default value is **KnobLimitEnum.Boundary** |
+| KnobLimit | Used to calculate the knob position. See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | Default value is **KnobLimitEnum.Boundary** |
 | VibrateDuration | Used to set the duration of the vibration when the switch is toggles | Default value is **20** <br> To disble the vibrate set the value to `0` |
 | ToggleAnimationDuration | Used to set the duration of the toggle animation | Default value is **100** <br> To disble the animation set the value to `0` |
 
