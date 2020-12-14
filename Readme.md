@@ -16,6 +16,13 @@ Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.CustomSwi
 Install-Package IeuanWalker.CustomSwitch
 ```
 
+The best place to learn how to create a new switch is by looking at the [samples](/Sample/Sample/Sample/Examples/).
+
+These are the key things to know - 
+- `BackgroundContent` is used to set the content of the switch
+- `KnobContent` is used to set the content on the knob. The content on the knbo is hidden/show by utilising the `IsClippedToBounds` property.
+So essentially as the knob moves from one side to the other it is just revealing a differnt bart of the content.
+- The `SwitchPanUpdate` is used transition from true to false, i.e. color fading etc. 
 ## What can I do with it?
 ### Properties
 | Property | What it does | Extra info |
