@@ -5,7 +5,8 @@
 ![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/Xamarin.Forms.Breadcrumb)
 
 
-This is a switch/ toggle control that would allow you to create any style switch you'd like.
+This is a switch/ toggle control that would allow you to create any style switch you'd like. This component is built on top/ from this great libary - https://github.com/Phenek/Global.InputForms. Fixes a few issues and adds more options for styling/ accessibility.
+
 Take a look at the sample app included within this project -
 
 ![Sample App](Doc/SampleApp.gif)
