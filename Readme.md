@@ -5,8 +5,8 @@
 ![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/Xamarin.Forms.Breadcrumb)
 
 
-This is a switch/ toggle control that would alow you to create any style switch you'd like.
-Taka a look at the sample app included within this project -
+This is a switch/ toggle control that would allow you to create any style switch you'd like.
+Take a look at the sample app included within this project -
 
 ![Sample App](Doc/SampleApp.gif)
 
@@ -15,7 +15,7 @@ Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.CustomSwi
 ```
 Install-Package IeuanWalker.CustomSwitch
 ```
-For android permssion to use the [vibration](https://docs.microsoft.com/en-us/xamarin/essentials/vibrate?tabs=android) feature is needed.
+For android, permission to use the [vibration](https://docs.microsoft.com/en-us/xamarin/essentials/vibrate?tabs=android) feature is needed.
 Open the AndroidManifest.xml file under the Properties folder and add the following inside of the manifest node.
 ```
 <uses-permission android:name="android.permission.VIBRATE" />
@@ -26,8 +26,8 @@ The best place to learn how to create a new switch is by looking at the [samples
 
 These are the key things to know - 
 - `BackgroundContent` is used to set the content of the switch
-- `KnobContent` is used to set the content on the knob. The content on the knob is hidden/shown by utilising the `IsClippedToBounds` property
-So essentially as the knob moves from one side to the other it is just revealing a differnt bart of the content.
+- `KnobContent` is used to set the content on the knob. The content on the knob is hidden/shown by utilising the `IsClippedToBounds` property.
+So essentially, as the knob moves from one side to the other it is just revealing a different part of the content.
 - The `SwitchPanUpdate` is used transition from true to false, i.e. color fading etc. 
 
 ## What can I do with it?
