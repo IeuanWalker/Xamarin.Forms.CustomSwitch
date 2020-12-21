@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using Acr.UserDialogs;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -16,6 +17,8 @@ namespace Sample.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            UserDialogs.Init(this);
+
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

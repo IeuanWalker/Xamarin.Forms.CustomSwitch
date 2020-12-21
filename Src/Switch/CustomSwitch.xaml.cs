@@ -2,6 +2,7 @@
 using Switch.Events;
 using System;
 using System.Diagnostics;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PancakeView;
@@ -18,7 +19,7 @@ namespace Switch
         private SwitchStateEnum CurrentState { get; set; }
         private double _xRef;
 
-        public static readonly BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled), typeof(bool), typeof(CustomSwitch), false, propertyChanged: IsToggledChanged);
+        public static readonly BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled), typeof(bool), typeof(CustomSwitch), false, BindingMode.TwoWay, propertyChanged: IsToggledChanged);
 
         public bool IsToggled
         {
@@ -204,6 +205,19 @@ namespace Switch
 
         #endregion Properties
 
+        #region Commands
+
+        public static readonly BindableProperty ToggledCommandProperty = BindableProperty.Create(nameof(ToggledCommand), typeof(ICommand), typeof(CustomSwitch));
+
+        public ICommand ToggledCommand
+        {
+            get { return (ICommand)GetValue(ToggledCommandProperty); }
+            set { SetValue(ToggledCommandProperty, value); }
+        }
+
+
+        #endregion
+
         #region Events
 
         public event EventHandler<ToggledEventArgs> Toggled;
@@ -242,6 +256,7 @@ namespace Switch
                 view.GoToLeft();
 
             view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
+            view.ToggledCommand?.Execute((bool)newValue);
 
             try
             {

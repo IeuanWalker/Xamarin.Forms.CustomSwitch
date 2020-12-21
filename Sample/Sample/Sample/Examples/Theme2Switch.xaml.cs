@@ -22,6 +22,21 @@ namespace Sample.Examples
                 double t = e.Percentage * 0.01;
 
                 Flex.TranslationX = -(e.TranslateX + e.XRef);
+                if (IsToggled)
+                {
+                    if (e.Percentage >= 50)
+                    {
+                        MoonImg.Opacity = ((e.Percentage - 50) * 2) * 0.01;
+                    }
+                }
+                else
+                {
+                    if (e.Percentage <= 50)
+                    {
+                        MoonImg.Opacity = (100 - (e.Percentage * 2)) * 0.01;
+                    }
+                }
+
                 BackgroundColorGradientStops = new Xamarin.Forms.PancakeView.GradientStopCollection
                 {
                     new Xamarin.Forms.PancakeView.GradientStop

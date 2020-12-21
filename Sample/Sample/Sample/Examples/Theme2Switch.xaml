@@ -36,7 +36,8 @@
                         AlignItems="Center"
                         JustifyContent="SpaceBetween"
                         WidthRequest="60">
-                <Image Aspect="AspectFit"
+                <Image x:Name="MoonImg"
+                       Aspect="AspectFit"
                        HeightRequest="40"
                        HorizontalOptions="Center"
                        Source="MoonSurface"
