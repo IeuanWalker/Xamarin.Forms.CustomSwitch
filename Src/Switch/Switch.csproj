@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>IeuanWalker.CustomSwitch</PackageId>
-    <Version>1.0.0-beta.1</Version>
+    <Version>1.0.0-beta.3</Version>
     <Authors>Ieuan Walker</Authors>
     <Company>Ieuan Walker</Company>
     <Product>IeuanWalker.CustomSwitch</Product>
@@ -15,6 +15,7 @@
     <PackageTags>Switch, toggle, xamarin, xamarin.forms</PackageTags>
     <NeutralLanguage>English</NeutralLanguage>
     <Copyright>Copyright Ieuan Walker</Copyright>
+    <PackageIcon>Logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +35,13 @@
     <EmbeddedResource Update="CustomSwitch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
