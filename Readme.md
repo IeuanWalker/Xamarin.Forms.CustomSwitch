@@ -61,10 +61,16 @@ So essentially, as the knob moves from one side to the other it is just revealin
 | ToggleAnimationDuration | Used to set the duration of the toggle animation | Default value is **100** <br> To disble the animation set the value to `0` |
 
 ### Events
-| Event | What it does | Extra info |
-|---|---|---- |
-| Toggled | Triggered when the switch is toggled | Default value is **false** |
-| SwitchPanUpdate | Triggered when the switch is toggled or dragged. Used to handle the transition of the switch from one side to the other. <br> See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | Default value is **false** |
+| Event | What it does 
+|---|---|
+| Toggled | Triggered when the switch is toggled |
+| SwitchPanUpdate | Triggered when the switch is toggled or dragged. Used to handle the transition of the switch from one side to the other. <br> See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | 
+
+### Commands
+| Command | What it does 
+|---|---|
+| ToggledCommand | Triggered when the switch is toggled |
+
 
 ## Examples
 ### iOS ([xaml](/Sample/Sample/Sample/Examples/IosSwitch.xaml) / [code behind](/Sample/Sample/Sample/Examples/IosSwitch.xaml.cs))
