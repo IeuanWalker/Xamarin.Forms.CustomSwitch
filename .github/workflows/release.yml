@@ -17,8 +17,6 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build Src/Switch/Switch.csproj --configuration Release --no-restore
     - name: Create NuGet package
       run: dotnet pack Src/Switch/Switch.csproj -c Release --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb/releases/tag/${{ github.event.release.tag_name }}"
     - name: Upload a Build Artifact
