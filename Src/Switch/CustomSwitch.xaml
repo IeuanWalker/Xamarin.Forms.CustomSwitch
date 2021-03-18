@@ -8,7 +8,7 @@
     <ContentView.Content>
         <Grid>
             <Grid.Effects>
-                <effects:LifeCycleEffect Loaded="Loaded" />
+                <effects:LifecycleEffect Loaded="Loaded" />
             </Grid.Effects>
             <pancakeView:PancakeView x:Name="BackgroundFrame"
                                      Padding="0"
