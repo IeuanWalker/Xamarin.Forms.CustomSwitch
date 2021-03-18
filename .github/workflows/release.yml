@@ -17,17 +17,19 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
+    - name: Build
+      run: dotnet build Src/Switch/Switch.csproj --configuration Release --no-restore
     - name: Create NuGet package
       run: dotnet pack Src/Switch/Switch.csproj -c Release --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb/releases/tag/${{ github.event.release.tag_name }}"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         name: NuGet package
-        path: "**/*${{ github.event.release.tag_name }}.nupkg"
+        path: "**/IeuanWalker.CustomSwitch.${{ github.event.release.tag_name }}.nupkg"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         name: NuGet package
-        path: "**/*${{ github.event.release.tag_name }}.snupkg"
+        path: "**/IeuanWalker.CustomSwitch.${{ github.event.release.tag_name }}.snupkg"
     - name: Publish NuGet package
-      run: dotnet nuget push **/*${{ github.event.release.tag_name }}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **/IeuanWalker.CustomSwitch.${{ github.event.release.tag_name }}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
