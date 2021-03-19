@@ -127,8 +127,8 @@ namespace Switch
 
         public GradientStopCollection BackgroundColorGradientStops
         {
-            get { return (GradientStopCollection)GetValue(BackgroundColorGradientStopsProperty); }
-            set { SetValue(BackgroundColorGradientStopsProperty, value); }
+            get => (GradientStopCollection)GetValue(BackgroundColorGradientStopsProperty);
+            set => SetValue(BackgroundColorGradientStopsProperty, value);
         }
 
         public static readonly BindableProperty BackgroundColorGradientStartPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
@@ -211,12 +211,11 @@ namespace Switch
 
         public ICommand ToggledCommand
         {
-            get { return (ICommand)GetValue(ToggledCommandProperty); }
-            set { SetValue(ToggledCommandProperty, value); }
+            get => (ICommand)GetValue(ToggledCommandProperty);
+            set => SetValue(ToggledCommandProperty, value);
         }
 
-
-        #endregion
+        #endregion Commands
 
         #region Events
 

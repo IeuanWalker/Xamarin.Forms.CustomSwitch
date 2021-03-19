@@ -2,8 +2,8 @@
 <ContentPage x:Class="Sample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:examples="clr-namespace:Sample.Examples"
              xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:examples="clr-namespace:Sample.Examples"
              BackgroundColor="#f7f7f7">
     <ContentPage.Content>
         <ScrollView>

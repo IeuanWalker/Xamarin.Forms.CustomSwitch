@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Sample.ViewModels
 {
@@ -12,6 +12,7 @@ namespace Sample.ViewModels
         {
             ToggleCommand = new Command<bool>(async x => await Toggled(x).ConfigureAwait(false));
         }
+
         public bool EnableCommands { get; set; }
         public bool EnableEvents { get; set; }
 
