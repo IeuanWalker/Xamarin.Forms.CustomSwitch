@@ -136,6 +136,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Src\Switch.iOS\Switch.iOS.csproj">
+      <Project>{43dd689a-3918-43eb-b654-8e1c54f23c72}</Project>
+      <Name>Switch.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Src\Switch\Switch.csproj">
       <Project>{3de1ce08-2c75-4e8e-abf3-3e6a44f46820}</Project>
       <Name>Switch</Name>
@@ -156,5 +162,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\AppleGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SunIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoonIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoonSurface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StarBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CloudBackground.png" />
   </ItemGroup>
 </Project>

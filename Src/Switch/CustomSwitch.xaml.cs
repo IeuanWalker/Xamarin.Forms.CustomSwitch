@@ -219,6 +219,58 @@ namespace Switch
             set => SetValue(AccessibilityFalseAnnouncementProperty, value);
         }
 
+        public static readonly BindableProperty AccessibilityNameTemplateProperty = BindableProperty.Create(nameof(AccessibilityNameTemplate), typeof(string), typeof(CustomSwitch), "{0} switch");
+        public string AccessibilityNameTemplate
+        {
+            get => (string)GetValue(AccessibilityNameTemplateProperty);
+            set => SetValue(AccessibilityNameTemplateProperty, value);
+        }
+        public static readonly BindableProperty AccessibilityNameTrueValueProperty = BindableProperty.Create(nameof(AccessibilityNameTrueValue), typeof(string), typeof(CustomSwitch), "On");
+        public string AccessibilityNameTrueValue
+        {
+            get => (string)GetValue(AccessibilityNameTrueValueProperty);
+            set => SetValue(AccessibilityNameTrueValueProperty, value);
+        }
+        public static readonly BindableProperty AccessibilityNameFalseValueProperty = BindableProperty.Create(nameof(AccessibilityNameFalseValue), typeof(string), typeof(CustomSwitch), "Off");
+        public string AccessibilityNameFalseValue
+        {
+            get => (string)GetValue(AccessibilityNameFalseValueProperty);
+            set => SetValue(AccessibilityNameFalseValueProperty, value);
+        }
+
+        public static readonly BindableProperty AccessibilityLabledByProperty = BindableProperty.Create(nameof(AccessibilityLabledBy), typeof(string), typeof(CustomSwitch), null);
+        public string AccessibilityLabledBy
+        {
+            get => (string)GetValue(AccessibilityLabledByProperty);
+            set => SetValue(AccessibilityLabledByProperty, value);
+        }
+        public static readonly BindableProperty AccessibilityNameLabeledByTemplateProperty = BindableProperty.Create(nameof(AccessibilityNameLabeledByTemplate), typeof(string), typeof(CustomSwitch), "{0} switch for {1}");
+        public string AccessibilityNameLabeledByTemplate
+        {
+            get => (string)GetValue(AccessibilityNameLabeledByTemplateProperty);
+            set => SetValue(AccessibilityNameLabeledByTemplateProperty, value);
+        }
+
+        public static readonly BindableProperty AccessibilityNameTrueOverrideProperty = BindableProperty.Create(nameof(AccessibilityNameTrueOverride), typeof(string), typeof(CustomSwitch), null);
+        public string AccessibilityNameTrueOverride
+        {
+            get => (string)GetValue(AccessibilityNameTrueOverrideProperty);
+            set => SetValue(AccessibilityNameTrueOverrideProperty, value);
+        }
+
+        public static readonly BindableProperty AccessibilityNameFalseOverrideProperty = BindableProperty.Create(nameof(AccessibilityNameFalseOverride), typeof(string), typeof(CustomSwitch), null);
+        public string AccessibilityNameFalseOverride
+        {
+            get => (string)GetValue(AccessibilityNameFalseOverrideProperty);
+            set => SetValue(AccessibilityNameFalseOverrideProperty, value);
+        }
+        public static readonly BindableProperty AccessibilityHelpTextProperty = BindableProperty.Create(nameof(AccessibilityHelpText), typeof(string), typeof(CustomSwitch), "Double tap to toggle");
+        public string AccessibilityHelpText
+        {
+            get => (string)GetValue(AccessibilityHelpTextProperty);
+            set => SetValue(AccessibilityHelpTextProperty, value);
+        }
+
         #endregion Properties
 
         #region Commands
@@ -231,7 +283,6 @@ namespace Switch
             set => SetValue(ToggledCommandProperty, value);
         }
 
-        public bool FinishedLoading { get; set; } = false;
         #endregion Commands
 
         #region Events
@@ -257,6 +308,8 @@ namespace Switch
 
         private void Loaded(object sender, EventArgs e)
         {
+            SetAccessabilityName(IsToggled);
+
             if (IsToggled)
             {
                 GoToRight(100);
@@ -276,13 +329,8 @@ namespace Switch
             else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
                 view.GoToLeft();
 
-            if (view.FinishedLoading)
-            {
-                view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
-                view.ToggledCommand?.Execute((bool)newValue);
-            }
-
-            
+            view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
+            view.ToggledCommand?.Execute((bool)newValue);
 
             try
             {
@@ -325,7 +373,7 @@ namespace Switch
 
             if (doAnnouncment)
             {
-                _accessibilityService.Announcement(AccessibilityFalseAnnouncement);
+                Announce(false);
             }
 
         }
@@ -359,7 +407,53 @@ namespace Switch
 
             if (doAnnouncment)
             {
-                _accessibilityService.Announcement(AccessibilityTrueAnnouncement);
+                Announce(true);
+            }
+        }
+
+        private void Announce(bool isToggled)
+        {
+            SetAccessabilityName(isToggled);
+            _accessibilityService.Announcement(isToggled ? AccessibilityTrueAnnouncement : AccessibilityFalseAnnouncement);
+        }
+
+        private void SetAccessabilityName(bool isToggled)
+        {
+            if (isToggled)
+            {
+                if (string.IsNullOrEmpty(AccessibilityNameTrueOverride))
+                {
+                    if (string.IsNullOrEmpty(AccessibilityLabledBy))
+                    {
+                        AutomationProperties.SetName(BackgroundFrame, string.Format(AccessibilityNameTemplate, AccessibilityNameTrueValue));
+                    }
+                    else
+                    {
+                        AutomationProperties.SetName(BackgroundFrame, string.Format(AccessibilityNameLabeledByTemplate, AccessibilityNameTrueValue, AccessibilityLabledBy));
+                    }
+                }
+                else
+                {
+                    AutomationProperties.SetName(BackgroundFrame, AccessibilityNameTrueOverride);
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(AccessibilityNameFalseOverride))
+                {
+                    if (string.IsNullOrEmpty(AccessibilityLabledBy))
+                    {
+                        AutomationProperties.SetName(BackgroundFrame, string.Format(AccessibilityNameTemplate, AccessibilityNameFalseValue));
+                    }
+                    else
+                    {
+                        AutomationProperties.SetName(BackgroundFrame, string.Format(AccessibilityNameLabeledByTemplate, AccessibilityNameFalseValue, AccessibilityLabledBy));
+                    }
+                }
+                else
+                {
+                    AutomationProperties.SetName(BackgroundFrame, AccessibilityNameFalseOverride);
+                }
             }
         }
 

@@ -12,7 +12,7 @@
             </Grid.Effects>
             <pancakeView:PancakeView x:Name="BackgroundFrame"
                                      Padding="0"
-                                     AutomationProperties.HelpText="Double tap to toggle setting"
+                                     AutomationProperties.HelpText="{Binding AccessibilityHelpText, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientEndPoint="{Binding BackgroundColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
@@ -44,7 +44,12 @@
                                      HorizontalOptions="Center"
                                      IsClippedToBounds="True"
                                      VerticalOptions="Center"
-                                     WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}" />
+                                     WidthRequest="{Binding KnobWidth, Source={RelativeSource AncestorType={x:Type ContentView}}}">
+                <pancakeView:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                </pancakeView:PancakeView.GestureRecognizers>
+            </pancakeView:PancakeView>
         </Grid>
     </ContentView.Content>
 </ContentView>

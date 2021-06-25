@@ -1,5 +1,5 @@
-﻿using Accessibility.iOS;
-using Foundation;
+﻿using Foundation;
+using Switch.iOS;
 using UIKit;
 
 namespace Sample.iOS
@@ -22,7 +22,7 @@ namespace Sample.iOS
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
-            Initialise.Init();
+            Initializer.Init();
 
             return base.FinishedLaunching(app, options);
         }

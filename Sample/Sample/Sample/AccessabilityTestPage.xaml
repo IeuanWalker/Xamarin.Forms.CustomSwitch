@@ -3,16 +3,61 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:examples="clr-namespace:Sample.Examples"
-             Title="Accessability testing">
+             Title="Accessability testing"
+             BackgroundColor="#f7f7f7">
     <ContentPage.Content>
         <StackLayout>
             <!--  Custom switch  -->
-            <Label AutomationProperties.IsInAccessibleTree="True"
-                   HorizontalOptions="Center"
+            <Label Padding="5"
+                   AutomationProperties.IsInAccessibleTree="True"
+                   HorizontalOptions="CenterAndExpand"
                    Text="Custom switch"
-                   TextColor="Black" />
-            <!--<examples:IosSwitch />-->
-            <examples:IosSwitch IsToggled="True" />
+                   TextColor="DarkGray" />
+            <examples:IosSwitch />
+
+            <BoxView Margin="10"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="FillAndExpand" />
+
+            <!--  Custom switch - Labled by  -->
+            <Label Padding="5"
+                   AutomationProperties.IsInAccessibleTree="True"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Custom switch - LabeledBy"
+                   TextColor="DarkGray" />
+
+            <StackLayout Margin="20,0" Orientation="Horizontal">
+                <Label x:Name="TestLabel1"
+                       AutomationProperties.IsInAccessibleTree="True"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="End"
+                       Text="Test switch"
+                       TextColor="DarkGray"
+                       VerticalTextAlignment="Center" />
+                <examples:IosSwitch AccessibilityLabledBy="{Binding Text, Source={x:Reference TestLabel1}}" />
+            </StackLayout>
+
+            <!--  Custom switch - Advanced  -->
+            <Label Padding="5"
+                   AutomationProperties.IsInAccessibleTree="True"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Custom switch - LabeledBy"
+                   TextColor="DarkGray" />
+
+            <StackLayout Margin="20,0" Orientation="Horizontal">
+                <Label x:Name="TestLabel2"
+                       AutomationProperties.IsInAccessibleTree="True"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="End"
+                       Text="Theme"
+                       TextColor="DarkGray"
+                       VerticalTextAlignment="Center" />
+                <examples:IosSwitch AccessibilityFalseAnnouncement="Dark theme enabled"
+                                    AccessibilityNameFalseOverride="Dark theme enabled"
+                                    AccessibilityNameTrueOverride="Light theme enabled"
+                                    AccessibilityTrueAnnouncement="Light theme enabled" />
+            </StackLayout>
 
             <BoxView Margin="10"
                      BackgroundColor="LightGray"
@@ -21,10 +66,9 @@
 
             <!--  Standard switch  -->
             <Label AutomationProperties.IsInAccessibleTree="True"
-                   FontSize="Title"
-                   HorizontalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
                    Text="Standard switch"
-                   TextColor="Black" />
+                   TextColor="DarkGray" />
             <Switch />
 
             <BoxView Margin="10"
@@ -34,16 +78,17 @@
 
             <!--  Standard switch - LabeledBy  -->
             <Label AutomationProperties.IsInAccessibleTree="True"
-                   FontSize="Title"
-                   HorizontalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
                    Text="Standard switch - LabeledBy"
-                   TextColor="Black" />
+                   TextColor="DarkGray" />
             <StackLayout Margin="20,0" Orientation="Horizontal">
                 <Label x:Name="TestLabel"
                        AutomationProperties.IsInAccessibleTree="True"
                        HorizontalOptions="FillAndExpand"
                        HorizontalTextAlignment="End"
-                       Text="Test switch" />
+                       Text="Test switch"
+                       TextColor="DarkGray"
+                       VerticalTextAlignment="Center" />
                 <Switch AutomationProperties.LabeledBy="{x:Reference TestLabel}" />
             </StackLayout>
 
