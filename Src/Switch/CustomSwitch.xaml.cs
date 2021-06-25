@@ -414,7 +414,7 @@ namespace Switch
         private void Announce(bool isToggled)
         {
             SetAccessabilityName(isToggled);
-            _accessibilityService.Announcement(isToggled ? AccessibilityTrueAnnouncement : AccessibilityFalseAnnouncement);
+            _accessibilityService.ForcedAnnouncement(isToggled ? AccessibilityTrueAnnouncement : AccessibilityFalseAnnouncement);
         }
 
         private void SetAccessabilityName(bool isToggled)

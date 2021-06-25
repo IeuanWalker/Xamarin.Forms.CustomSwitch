@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata minClientVersion="">
+    <id>IeuanWalker.CustomSwitch</id>
+    <version>0.0.1-alpha</version>
+    <authors>Ieuan Walker</authors>
+    <owners>Ieuan Walker</owners>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch</projectUrl>
+    <description>A control that allows you to design any type of switch/ toggle for Xamarin.Forms</description>
+    <tags>Switch, toggle, xamarin, xamarin.forms</tags>
+    <dependencies>
+      <group>
+        <dependency id="Xamarin.Forms" version="5.0.0.2012" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- .NET Standard -->
+    <file src="../Src/Switch/bin/Release/netstandard2.0/Switch.dll" target="lib/netstandard1.0" />
+
+    <!-- Xamarin.iOS -->
+    <file src="../Src/Switch.iOS/bin/Release/Switch.dll" target="lib/xamarinios10" />
+    <file src="../Src/Switch.iOS/bin/Release/Switch.iOS.dll" target="lib/xamarinios10" />
+  </files>
+</package>
+
+<!--nuget pack IeuanWalker.CustomSwitch.nuspec -Version 0.0.3-alpha-->
