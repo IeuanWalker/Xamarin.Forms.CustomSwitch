@@ -22,5 +22,10 @@ namespace Sample
                 await UserDialogs.Instance.AlertAsync($"New value: {e.Value}", "Switch toggled (Event)").ConfigureAwait(false);
             }
         }
+
+        private async void Button_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new AccessabilityTestPage());
+        }
     }
 }

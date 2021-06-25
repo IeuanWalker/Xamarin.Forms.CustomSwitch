@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Sample.AccessabilityTestPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:examples="clr-namespace:Sample.Examples"
+             Title="Accessability testing">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--  Custom switch  -->
+            <Label AutomationProperties.IsInAccessibleTree="True"
+                   HorizontalOptions="Center"
+                   Text="Custom switch"
+                   TextColor="Black" />
+            <!--<examples:IosSwitch />-->
+            <examples:IosSwitch IsToggled="True" />
+
+            <BoxView Margin="10"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="FillAndExpand" />
+
+            <!--  Standard switch  -->
+            <Label AutomationProperties.IsInAccessibleTree="True"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   Text="Standard switch"
+                   TextColor="Black" />
+            <Switch />
+
+            <BoxView Margin="10"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="FillAndExpand" />
+
+            <!--  Standard switch - LabeledBy  -->
+            <Label AutomationProperties.IsInAccessibleTree="True"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   Text="Standard switch - LabeledBy"
+                   TextColor="Black" />
+            <StackLayout Margin="20,0" Orientation="Horizontal">
+                <Label x:Name="TestLabel"
+                       AutomationProperties.IsInAccessibleTree="True"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="End"
+                       Text="Test switch" />
+                <Switch AutomationProperties.LabeledBy="{x:Reference TestLabel}" />
+            </StackLayout>
+
+
+            <BoxView Margin="10"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

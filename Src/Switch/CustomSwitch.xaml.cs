@@ -1,4 +1,5 @@
-﻿using Switch.Enums;
+﻿using Accessibility;
+using Switch.Enums;
 using Switch.Events;
 using System;
 using System.Diagnostics;
@@ -203,6 +204,21 @@ namespace Switch
             set => SetValue(ToggleAnimationDurationProperty, value);
         }
 
+
+        public static readonly BindableProperty AccessibilityTrueAnnouncementProperty = BindableProperty.Create(nameof(AccessibilityTrueAnnouncement), typeof(string), typeof(CustomSwitch), "On");
+        public string AccessibilityTrueAnnouncement
+        {
+            get => (string)GetValue(AccessibilityTrueAnnouncementProperty);
+            set => SetValue(AccessibilityTrueAnnouncementProperty, value);
+        }
+
+        public static readonly BindableProperty AccessibilityFalseAnnouncementProperty = BindableProperty.Create(nameof(AccessibilityFalseAnnouncement), typeof(string), typeof(CustomSwitch), "Off");
+        public string AccessibilityFalseAnnouncement
+        {
+            get => (string)GetValue(AccessibilityFalseAnnouncementProperty);
+            set => SetValue(AccessibilityFalseAnnouncementProperty, value);
+        }
+
         #endregion Properties
 
         #region Commands
@@ -215,6 +231,7 @@ namespace Switch
             set => SetValue(ToggledCommandProperty, value);
         }
 
+        public bool FinishedLoading { get; set; } = false;
         #endregion Commands
 
         #region Events
@@ -225,9 +242,14 @@ namespace Switch
 
         #endregion Events
 
+        private readonly IAccessibilityService _accessibilityService;
+
         public CustomSwitch()
         {
             InitializeComponent();
+
+            _accessibilityService = DependencyService.Get<IAccessibilityService>();
+
             CurrentState = IsToggled ? SwitchStateEnum.Right : SwitchStateEnum.Left;
 
             KnobFrame.SetBinding(ContentProperty, new Binding(nameof(KnobContent)) { Source = this, Mode = BindingMode.TwoWay });
@@ -254,8 +276,13 @@ namespace Switch
             else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
                 view.GoToLeft();
 
-            view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
-            view.ToggledCommand?.Execute((bool)newValue);
+            if (view.FinishedLoading)
+            {
+                view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
+                view.ToggledCommand?.Execute((bool)newValue);
+            }
+
+            
 
             try
             {
@@ -272,6 +299,7 @@ namespace Switch
 
         private void GoToLeft(double percentage = 0.0)
         {
+            bool doAnnouncment = IsToggled != false;
             if (Math.Abs(KnobFrame.TranslationX + _xRef) > 0.0)
             {
                 this.AbortAnimation("SwitchAnimation");
@@ -294,10 +322,18 @@ namespace Switch
                 IsToggled = false;
                 SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
             }
+
+            if (doAnnouncment)
+            {
+                _accessibilityService.Announcement(AccessibilityFalseAnnouncement);
+            }
+
         }
 
         private void GoToRight(double percentage = 0.0)
         {
+            bool doAnnouncment = IsToggled != true;
+
             if (Math.Abs(KnobFrame.TranslationX - _xRef) > 0.0)
             {
                 this.AbortAnimation("SwitchAnimation");
@@ -319,6 +355,11 @@ namespace Switch
                 CurrentState = SwitchStateEnum.Right;
                 IsToggled = true;
                 SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
+            }
+
+            if (doAnnouncment)
+            {
+                _accessibilityService.Announcement(AccessibilityTrueAnnouncement);
             }
         }
 

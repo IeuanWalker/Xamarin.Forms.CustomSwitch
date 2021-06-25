@@ -12,6 +12,8 @@
             </Grid.Effects>
             <pancakeView:PancakeView x:Name="BackgroundFrame"
                                      Padding="0"
+                                     AutomationProperties.HelpText="Double tap to toggle setting"
+                                     AutomationProperties.IsInAccessibleTree="True"
                                      BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientEndPoint="{Binding BackgroundColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientStartPoint="{Binding BackgroundColorGradientStartPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"

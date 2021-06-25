@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.481" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-pre2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
@@ -61,6 +61,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AccessabilityTestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Examples\AndroidSwitch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

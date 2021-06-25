@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Accessibility.iOS;
+using Foundation;
 using UIKit;
 
 namespace Sample.iOS
@@ -20,6 +21,8 @@ namespace Sample.iOS
         {
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            Initialise.Init();
 
             return base.FinishedLaunching(app, options);
         }
