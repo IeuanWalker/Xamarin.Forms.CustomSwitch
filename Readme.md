@@ -59,6 +59,16 @@ So essentially, as the knob moves from one side to the other it is just revealin
 | KnobLimit | Used to calculate the knob position.  <br> See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | Default value is **KnobLimitEnum.Boundary** |
 | VibrateDuration | Used to set the duration of the vibration when the switch is toggles | Default value is **20** <br> To disble the vibrate set the value to `0` |
 | ToggleAnimationDuration | Used to set the duration of the toggle animation | Default value is **100** <br> To disble the animation set the value to `0` |
+| AccessibilityTrueAnnouncement | When the toggle is changed to true, this text would be read out loud for voice over users | Default is `On` |
+| AccessibilityFalseAnnouncement | When the toggle is changed to false, this text would be read out loud for voice over users | Default is `Off` |
+| AccessibilityNameTemplate | Template to update the `AutomationProperties.Name` property.  | Default is `{0} switch`. <br/> {0} is the switch state i.e. 'On', 'Off'. State value can be customised using `AccessibilityNameTrueValue` and `AccessibilityNameFalseValue` |
+| AccessibilityNameTrueValue | Sets the true state text used for `AccessibilityNameTemplate` or `AccessibilityNameLabeledByTemplate` | Default is `On` |
+| AccessibilityNameFalseValue | Sets the false state text used for `AccessibilityNameTemplate` or `AccessibilityNameLabeledByTemplate` | Default is `Off` |
+| AccessibilityLabledBy | Sets the labledby text | Default is `null` |
+| AccessibilityNameLabeledByTemplate | Template to update the `AutomationProperties.Name` property when `AccessibilityLabledBy` is set | Default is `{0} switch for {1}`. <br/> {0} is the switch state i.e. 'On', 'Off'. State value can be customised using `AccessibilityNameTrueValue` and `AccessibilityNameFalseValue`. <br/> {1} is the `AccessibilityLabledBy` value |
+| AccessibilityNameTrueOverride | Text used for `AutomationProperties.Name` when toggle is true.  `AccessibilityNameLabeledByTemplate` and `AccessibilityNameTemplate` will not be used | Default is `null` |
+| AccessibilityNameFalseOverride | Text used for `AutomationProperties.Name` when toggle is false.  `AccessibilityNameLabeledByTemplate` and `AccessibilityNameTemplate` will not be used | Default is `null` |
+| AccessibilityHelpText | Text used for `AutomationProperties.HelpText` | Default is `Double tap to toggle` |
 
 ### Events
 | Event | What it does 
