@@ -1,7 +1,3 @@
-using System;
-using System.ComponentModel;
-using System.Linq;
-using Foundation;
 using Switch.iOS;
 using UIKit;
 using Xamarin.Forms;
