@@ -2,9 +2,10 @@
 <ContentPage x:Class="Sample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              xmlns:examples="clr-namespace:Sample.Examples"
-             BackgroundColor="#f7f7f7">
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             BackgroundColor="#f7f7f7"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -22,7 +23,7 @@
                     <Frame Margin="20"
                            BorderColor="LightGray"
                            CornerRadius="20">
-                        <Grid ColumnDefinitions="*,auto" RowDefinitions="auto,auto">
+                        <Grid ColumnDefinitions="*,auto,auto" RowDefinitions="auto,auto">
                             <Label Grid.Row="0"
                                    Grid.Column="0"
                                    Text="Enable toggle events: "
@@ -37,6 +38,12 @@
                             <examples:IosSwitch Grid.Row="1"
                                                 Grid.Column="1"
                                                 IsToggled="{Binding EnableCommands}" />
+
+                            <Button Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Clicked="Button_OnClicked"
+                                    Text="Accessibility testing" />
                         </Grid>
                     </Frame>
                 </views:Expander>

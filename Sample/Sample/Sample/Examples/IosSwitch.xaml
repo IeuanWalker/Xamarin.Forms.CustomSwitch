@@ -14,7 +14,7 @@
                      VibrateDuration="20"
                      WidthRequest="70">
     <switch:CustomSwitch.BackgroundContent>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout AutomationProperties.IsInAccessibleTree="True" Orientation="Horizontal">
             <Label FontAttributes="Bold"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"

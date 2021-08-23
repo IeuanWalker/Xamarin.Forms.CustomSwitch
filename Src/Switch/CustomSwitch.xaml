@@ -4,7 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="http://xamarin.com/schemas/2020/toolkit"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             AutomationProperties.IsInAccessibleTree="True"
              BackgroundColor="Transparent">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+    </ContentView.GestureRecognizers>
     <ContentView.Content>
         <Grid>
             <Grid.Effects>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Sample.Pages.AccessibilityTestPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:examples="clr-namespace:Sample.Examples;assembly=Sample"
+             Title="Accessibility testing">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Standard switch"
+                       TextColor="DarkGray" />
+                <Switch IsToggled="False" />
+                <Switch IsToggled="True" />
+                <examples:IosSwitch IsToggled="False" />
+                <examples:IosSwitch IsToggled="True" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label x:Name="TitleLbl"
+                       Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Standard switch (LabeledBy)"
+                       TextColor="DarkGray" />
+                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="False" />
+                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="True" />
+                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="False" />
+                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="True" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Standard switch (Custom accessibility)"
+                       TextColor="DarkGray" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

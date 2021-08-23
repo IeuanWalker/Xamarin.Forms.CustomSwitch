@@ -301,6 +301,8 @@ namespace Switch
             if (Math.Abs(KnobFrame.TranslationX - _xRef) > 0.0)
             {
                 this.AbortAnimation("SwitchAnimation");
+                
+                IsToggled = true;
                 new Animation
                 {
                     {0, 1, new Animation(v => KnobFrame.TranslationX = v, KnobFrame.TranslationX, _xRef)},
@@ -309,7 +311,6 @@ namespace Switch
                 {
                     this.AbortAnimation("SwitchAnimation");
                     CurrentState = SwitchStateEnum.Right;
-                    IsToggled = true;
                     SendSwitchPanUpdatedEventArgs(PanStatusEnum.Completed);
                 });
             }
