@@ -18,6 +18,7 @@
             <FlexLayout x:Name="Flex"
                         Margin="10,0"
                         AlignItems="Center"
+                        AutomationProperties.IsInAccessibleTree="False"
                         JustifyContent="SpaceBetween"
                         WidthRequest="60">
                 <Image Aspect="AspectFit"

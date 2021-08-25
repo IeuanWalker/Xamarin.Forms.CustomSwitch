@@ -2,8 +2,8 @@
 <switch:CustomSwitch x:Class="Sample.Examples.Other1Switch"
                      xmlns="http://xamarin.com/schemas/2014/forms"
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                     xmlns:switch="clr-namespace:Switch;assembly=Switch"
                      xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                     xmlns:switch="clr-namespace:Switch;assembly=Switch"
                      BackgroundColor="White"
                      CornerRadius="5"
                      HeightRequest="40"
@@ -19,7 +19,7 @@
         <pancakeView:Border Thickness="3" />
     </switch:CustomSwitch.KnobBorder>
     <switch:CustomSwitch.BackgroundContent>
-        <FlexLayout JustifyContent="SpaceEvenly">
+        <FlexLayout AutomationProperties.IsInAccessibleTree="False" JustifyContent="SpaceEvenly">
             <Label FontAttributes="Bold"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"
@@ -40,7 +40,7 @@
     </switch:CustomSwitch.BackgroundContent>
 
     <switch:CustomSwitch.KnobContent>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout AutomationProperties.IsInAccessibleTree="False" Orientation="Horizontal">
             <FlexLayout x:Name="Flex"
                         JustifyContent="SpaceEvenly"
                         WidthRequest="120">

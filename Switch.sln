@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch.iOS", "Src\Switch.iOS\Switch.iOS.csproj", "{43DD689A-3918-43EB-B654-8E1C54F23C72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch.Android", "Src\Switch.Android\Switch.Android.csproj", "{837F2A4D-7A56-4B08-9CC5-8D9DD75A577F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch.Droid", "Src\Switch.Android\Switch.Droid.csproj", "{837F2A4D-7A56-4B08-9CC5-8D9DD75A577F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

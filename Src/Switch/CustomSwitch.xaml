@@ -5,6 +5,7 @@
              xmlns:effects="http://xamarin.com/schemas/2020/toolkit"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              AutomationProperties.IsInAccessibleTree="True"
+             AutomationProperties.Name=""
              BackgroundColor="Transparent">
     <ContentView.GestureRecognizers>
         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -16,6 +17,7 @@
             </Grid.Effects>
             <pancakeView:PancakeView x:Name="BackgroundFrame"
                                      Padding="0"
+                                     AutomationProperties.IsInAccessibleTree="False"
                                      BackgroundColor="{Binding BackgroundColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientEndPoint="{Binding BackgroundColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientStartPoint="{Binding BackgroundColorGradientStartPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
@@ -35,6 +37,7 @@
             </pancakeView:PancakeView>
             <pancakeView:PancakeView x:Name="KnobFrame"
                                      Padding="0"
+                                     AutomationProperties.IsInAccessibleTree="False"
                                      BackgroundColor="{Binding KnobColor, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientEndPoint="{Binding KnobColorGradientEndPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                                      BackgroundGradientStartPoint="{Binding KnobColorGradientStartPoint, Source={RelativeSource AncestorType={x:Type ContentView}}}"

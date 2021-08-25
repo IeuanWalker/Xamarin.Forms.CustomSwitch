@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Switch.Android.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Switch.Droid.Resource", IsApplication=false)]
 
-namespace Switch.Android
+namespace Switch.Droid
 {
 	
 	

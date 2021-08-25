@@ -1,20 +1,34 @@
 using System.ComponentModel;
 using Android.Content;
 using Android.Views.Accessibility;
-using Android.Widget;
 using Java.Lang;
-using Switch.Android;
+using Switch.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(Switch.CustomSwitch), typeof(CustomSwitchRenderer))]
 
-namespace Switch.Android
+namespace Switch.Droid
 {
-    public class CustomSwitchRenderer : VisualElementRenderer<ContentView>, ICheckable
+    public class CustomSwitchRenderer : VisualElementRenderer<ContentView>
     {
+        private readonly Android.Widget.Switch _a11YSwitch;
         public CustomSwitchRenderer(Context context) : base(context)
         {
+            _a11YSwitch = new Android.Widget.Switch(context);
+        }
+
+        /// <inheritdoc />
+        protected override void OnElementChanged(ElementChangedEventArgs<ContentView> e)
+        {
+            base.OnElementChanged(e);
+
+            if(e.NewElement == null) return;
+
+            CustomSwitch customSwitch = e.NewElement as CustomSwitch;
+
+            _a11YSwitch.Checked = customSwitch.IsToggled;
+
         }
 
         /// <inheritdoc />
@@ -24,21 +38,18 @@ namespace Switch.Android
 
             if (e.PropertyName.Equals(nameof(CustomSwitch.IsToggled)))
             {
-                Toggle();
+                CustomSwitch customSwitch = sender as CustomSwitch;
+
+                if (_a11YSwitch.Checked != customSwitch.IsToggled)
+                {
+                    _a11YSwitch.Checked = customSwitch.IsToggled;
+                    AnnounceForAccessibility(GetStateDescription());
+                }
             }
         }
 
         /// <inheritdoc />
-        public override void OnInitializeAccessibilityEvent(AccessibilityEvent? e)
-        {
-            if (e != null)
-            {
-                e.Checked = Checked;
-            }
-
-            base.OnInitializeAccessibilityEvent(e);
-
-        }
+        public override ICharSequence? AccessibilityClassNameFormatted => new String(_a11YSwitch.Class.Name);
 
         /// <inheritdoc />
         public override void OnInitializeAccessibilityNodeInfo(AccessibilityNodeInfo? info)
@@ -46,20 +57,17 @@ namespace Switch.Android
             if (info != null)
             {
                 info.Checkable = true;
-                info.Checked = Checked;
+                info.Checked = _a11YSwitch.Checked;
+                info.Text = GetStateDescription();
             }
 
             base.OnInitializeAccessibilityNodeInfo(info);
         }
 
 
-        /// <inheritdoc />
-        public void Toggle()
+        private string GetStateDescription()
         {
-            Checked = !Checked;
+            return _a11YSwitch.Checked ? _a11YSwitch.TextOn : _a11YSwitch.TextOff;
         }
-
-        /// <inheritdoc />
-        public bool Checked { get; set; }
     }
 }
