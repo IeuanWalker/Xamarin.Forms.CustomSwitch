@@ -3,7 +3,8 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:examples="clr-namespace:Sample.Examples;assembly=Sample"
-             Title="Accessibility testing">
+             Title="Accessibility testing"
+             BackgroundColor="#f7f7f7">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -11,10 +12,10 @@
                        HorizontalOptions="CenterAndExpand"
                        Text="Standard switch"
                        TextColor="DarkGray" />
-                <Switch IsToggled="False" />
-                <Switch IsToggled="True" />
-                <examples:IosSwitch IsToggled="False" />
-                <examples:IosSwitch IsToggled="True" />
+                <Switch HorizontalOptions="CenterAndExpand" IsToggled="False" />
+                <Switch HorizontalOptions="CenterAndExpand" IsToggled="True" />
+                <examples:IosSwitch HorizontalOptions="CenterAndExpand" IsToggled="False" />
+                <examples:IosSwitch HorizontalOptions="CenterAndExpand" IsToggled="True" />
 
                 <BoxView Margin="0,10"
                          BackgroundColor="LightGray"
@@ -26,10 +27,18 @@
                        HorizontalOptions="CenterAndExpand"
                        Text="Standard switch (LabeledBy)"
                        TextColor="DarkGray" />
-                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="False" />
-                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="True" />
-                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="False" />
-                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}" IsToggled="True" />
+                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}"
+                        HorizontalOptions="CenterAndExpand"
+                        IsToggled="False" />
+                <Switch AutomationProperties.LabeledBy="{x:Reference TitleLbl}"
+                        HorizontalOptions="Center"
+                        IsToggled="True" />
+                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}"
+                                    HorizontalOptions="Center"
+                                    IsToggled="False" />
+                <examples:IosSwitch AutomationProperties.LabeledBy="{x:Reference TitleLbl}"
+                                    HorizontalOptions="Center"
+                                    IsToggled="True" />
 
                 <BoxView Margin="0,10"
                          BackgroundColor="LightGray"
@@ -38,8 +47,28 @@
 
                 <Label Padding="5"
                        HorizontalOptions="CenterAndExpand"
-                       Text="Standard switch (Custom accessibility)"
+                       Text="AutomationProperties Name"
                        TextColor="DarkGray" />
+                <Switch AutomationProperties.Name="This is a name"
+                        HorizontalOptions="CenterAndExpand"
+                        IsToggled="False" />
+                <examples:IosSwitch AutomationProperties.Name="This is a name"
+                                    HorizontalOptions="CenterAndExpand"
+                                    IsToggled="False" />
+
+                <BoxView Margin="0,10"
+                         BackgroundColor="LightGray"
+                         HeightRequest="1"
+                         HorizontalOptions="FillAndExpand" />
+
+                <Label Padding="5"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="AutomationProperties HelpText"
+                       TextColor="DarkGray" />
+                <Switch AutomationProperties.HelpText="This is help text" HorizontalOptions="CenterAndExpand" />
+                <examples:IosSwitch AutomationProperties.HelpText="This is help text"
+                                    AutomationProperties.LabeledBy="{x:Reference TitleLbl}"
+                                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

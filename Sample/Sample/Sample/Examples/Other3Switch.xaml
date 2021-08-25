@@ -14,17 +14,15 @@
                      VibrateDuration="20"
                      WidthRequest="90">
     <switch:CustomSwitch.BackgroundContent>
-        <StackLayout AutomationProperties.IsInAccessibleTree="False" Orientation="Horizontal">
-            <Label AutomationProperties.IsInAccessibleTree="False"
-                   FontAttributes="Bold"
+        <StackLayout Orientation="Horizontal">
+            <Label FontAttributes="Bold"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"
                    Text="ON"
                    TextColor="White"
                    VerticalOptions="FillAndExpand"
                    VerticalTextAlignment="Center" />
-            <Label AutomationProperties.IsInAccessibleTree="False"
-                   FontAttributes="Bold"
+            <Label FontAttributes="Bold"
                    FontSize="12"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"

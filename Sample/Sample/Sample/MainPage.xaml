@@ -21,12 +21,15 @@
                                TextDecorations="Underline" />
                     </views:Expander.Header>
                     <Frame Margin="20"
+                           BackgroundColor="Transparent"
                            BorderColor="LightGray"
-                           CornerRadius="20">
+                           CornerRadius="20"
+                           HasShadow="False">
                         <Grid ColumnDefinitions="*,auto,auto" RowDefinitions="auto,auto">
                             <Label Grid.Row="0"
                                    Grid.Column="0"
                                    Text="Enable toggle events: "
+                                   TextColor="DarkGray"
                                    VerticalTextAlignment="Center" />
                             <examples:IosSwitch Grid.Row="0"
                                                 Grid.Column="1"
@@ -34,6 +37,7 @@
                             <Label Grid.Row="1"
                                    Grid.Column="0"
                                    Text="Enable toggle commands: "
+                                   TextColor="DarkGray"
                                    VerticalTextAlignment="Center" />
                             <examples:IosSwitch Grid.Row="1"
                                                 Grid.Column="1"
@@ -123,6 +127,8 @@
                 <examples:Other2Switch IsToggled="True" />
 
                 <examples:Other3Switch Margin="0,30,0,0"
+                                       AutomationProperties.HelpText="Test 2"
+                                       AutomationProperties.Name="Test"
                                        IsToggled="False"
                                        Toggled="Switch_OnToggled"
                                        ToggledCommand="{Binding ToggleCommand}" />

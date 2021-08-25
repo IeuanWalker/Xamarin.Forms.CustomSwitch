@@ -17,7 +17,6 @@
     <switch:CustomSwitch.BackgroundContent>
         <FlexLayout Margin="15,0,15,0"
                     AlignItems="Center"
-                    AutomationProperties.IsInAccessibleTree="False"
                     JustifyContent="SpaceBetween">
             <Image Aspect="AspectFit"
                    HeightRequest="40"
@@ -35,7 +34,6 @@
         <StackLayout Orientation="Horizontal">
             <FlexLayout x:Name="Flex"
                         AlignItems="Center"
-                        AutomationProperties.IsInAccessibleTree="False"
                         JustifyContent="SpaceBetween"
                         WidthRequest="60">
                 <Image x:Name="MoonImg"

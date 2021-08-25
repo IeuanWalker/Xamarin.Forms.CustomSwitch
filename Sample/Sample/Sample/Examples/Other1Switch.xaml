@@ -19,7 +19,7 @@
         <pancakeView:Border Thickness="3" />
     </switch:CustomSwitch.KnobBorder>
     <switch:CustomSwitch.BackgroundContent>
-        <FlexLayout AutomationProperties.IsInAccessibleTree="False" JustifyContent="SpaceEvenly">
+        <FlexLayout JustifyContent="SpaceEvenly">
             <Label FontAttributes="Bold"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"
@@ -40,7 +40,7 @@
     </switch:CustomSwitch.BackgroundContent>
 
     <switch:CustomSwitch.KnobContent>
-        <StackLayout AutomationProperties.IsInAccessibleTree="False" Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal">
             <FlexLayout x:Name="Flex"
                         JustifyContent="SpaceEvenly"
                         WidthRequest="120">

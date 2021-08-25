@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Android.Content;
+using Android.Views;
 using Android.Views.Accessibility;
 using Java.Lang;
 using Switch.Droid;
@@ -10,7 +11,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Switch.Droid
 {
-    public class CustomSwitchRenderer : VisualElementRenderer<ContentView>
+    public sealed class CustomSwitchRenderer : VisualElementRenderer<ContentView>
     {
         private readonly Android.Widget.Switch _a11YSwitch;
         public CustomSwitchRenderer(Context context) : base(context)
@@ -23,7 +24,7 @@ namespace Switch.Droid
         {
             base.OnElementChanged(e);
 
-            if(e.NewElement == null) return;
+            if (e.NewElement == null) return;
 
             CustomSwitch customSwitch = e.NewElement as CustomSwitch;
 

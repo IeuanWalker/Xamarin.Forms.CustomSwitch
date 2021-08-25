@@ -164,4 +164,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\AppleGray.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CloudBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoonIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoonSurface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StarBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SunIcon.png" />
+  </ItemGroup>
 </Project>
