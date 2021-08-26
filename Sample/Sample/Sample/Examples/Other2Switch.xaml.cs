@@ -21,19 +21,19 @@ namespace Sample.Examples
 
                 double t = e.Percentage * 0.01;
 
-                KnobColorGradientStops = new Xamarin.Forms.PancakeView.GradientStopCollection
+                KnobBackground = new LinearGradientBrush(new GradientStopCollection
                 {
-                    new Xamarin.Forms.PancakeView.GradientStop
+                    new GradientStop
                     {
                         Color =  ColorAnimationUtil.ColorAnimation(fromColorGradient1, toColorGradient1, t),
                         Offset = 0
                     },
-                    new Xamarin.Forms.PancakeView.GradientStop
+                    new GradientStop
                     {
                         Color = ColorAnimationUtil.ColorAnimation(fromColorGradient2, toColorGradient2, t),
                         Offset = 1
                     }
-                };
+                }, new Point(0.6, 1), new Point(1,0));
             };
         }
     }

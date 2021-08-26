@@ -5,9 +5,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
-using GradientStopCollection = Xamarin.Forms.PancakeView.GradientStopCollection;
 
 namespace Switch
 {
@@ -43,6 +41,14 @@ namespace Switch
             set => SetValue(KnobWidthProperty, value);
         }
 
+        public static readonly BindableProperty KnobBackgroundProperty = BindableProperty.Create(nameof(KnobBackground), typeof(Brush), typeof(CustomSwitch), Brush.Default);
+        [TypeConverter(typeof(BrushTypeConverter))]
+        public Brush KnobBackground
+        {
+            get => (Brush)GetValue(KnobBackgroundProperty);
+            set => SetValue(KnobBackgroundProperty, value);
+        }
+
         public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(CustomSwitch), Color.Default);
 
         public Color KnobColor
@@ -51,41 +57,9 @@ namespace Switch
             set => SetValue(KnobColorProperty, value);
         }
 
-        public static readonly BindableProperty KnobColorGradientStopsProperty = BindableProperty.Create(nameof(KnobColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
-
-        public GradientStopCollection KnobColorGradientStops
-        {
-            get { return (GradientStopCollection)GetValue(KnobColorGradientStopsProperty); }
-            set { SetValue(KnobColorGradientStopsProperty, value); }
-        }
-
-        public static readonly BindableProperty KnobColorGradientStartPointProperty = BindableProperty.Create(nameof(KnobColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
-
-        public Point KnobColorGradientStartPoint
-        {
-            get => (Point)GetValue(KnobColorGradientStartPointProperty);
-            set => SetValue(KnobColorGradientStartPointProperty, value);
-        }
-
-        public static readonly BindableProperty KnobColorGradientEndPointProperty = BindableProperty.Create(nameof(KnobColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
-
-        public Point KnobColorGradientEndPoint
-        {
-            get => (Point)GetValue(KnobColorGradientEndPointProperty);
-            set => SetValue(KnobColorGradientEndPointProperty, value);
-        }
-
-        public static readonly BindableProperty KnobBorderProperty = BindableProperty.Create(nameof(KnobBorder), typeof(Border), typeof(CustomSwitch), default(Border));
-
-        public Border KnobBorder
-        {
-            get { return (Border)GetValue(KnobBorderProperty); }
-            set { SetValue(KnobBorderProperty, value); }
-        }
-
         public static readonly BindableProperty KnobCornerRadiusProperty = BindableProperty.Create(nameof(KnobCornerRadius), typeof(CornerRadius), typeof(CustomSwitch), default(CornerRadius));
 
-        public CornerRadius KnobCornerRadius
+        public CornerRadius  KnobCornerRadius
         {
             get => (CornerRadius)GetValue(KnobCornerRadiusProperty);
             set => SetValue(KnobCornerRadiusProperty, value);
@@ -115,44 +89,20 @@ namespace Switch
             set => SetValue(CornerRadiusProperty, value);
         }
 
+        public new static readonly BindableProperty BackgroundProperty = BindableProperty.Create(nameof(Background), typeof(Brush), typeof(CustomSwitch), Brush.Default);
+        [TypeConverter(typeof(BrushTypeConverter))]
+        public new Brush Background
+        {
+            get => (Brush)GetValue(BackgroundProperty);
+            set => SetValue(BackgroundProperty, value);
+        }
+
         public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(CustomSwitch), Color.Default);
 
         public new Color BackgroundColor
         {
             get => (Color)GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
-        }
-
-        public static readonly BindableProperty BackgroundColorGradientStopsProperty = BindableProperty.Create(nameof(BackgroundColorGradientStops), typeof(GradientStopCollection), typeof(CustomSwitch), new GradientStopCollection());
-
-        public GradientStopCollection BackgroundColorGradientStops
-        {
-            get => (GradientStopCollection)GetValue(BackgroundColorGradientStopsProperty);
-            set => SetValue(BackgroundColorGradientStopsProperty, value);
-        }
-
-        public static readonly BindableProperty BackgroundColorGradientStartPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientStartPoint), typeof(Point), typeof(CustomSwitch), new Point(0, 0));
-
-        public Point BackgroundColorGradientStartPoint
-        {
-            get => (Point)GetValue(BackgroundColorGradientStartPointProperty);
-            set => SetValue(BackgroundColorGradientStartPointProperty, value);
-        }
-
-        public static readonly BindableProperty BackgroundColorGradientEndPointProperty = BindableProperty.Create(nameof(BackgroundColorGradientEndPoint), typeof(Point), typeof(CustomSwitch), new Point(1, 0));
-
-        public Point BackgroundColorGradientEndPoint
-        {
-            get => (Point)GetValue(BackgroundColorGradientEndPointProperty);
-            set => SetValue(BackgroundColorGradientEndPointProperty, value);
-        }
-
-        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(Border), typeof(Border), typeof(CustomSwitch), default(Border));
-
-        public Border Border
-        {
-            get => (Border)GetValue(BorderColorProperty);
-            set => SetValue(BorderColorProperty, value);
         }
 
         public static readonly BindableProperty BackgroundContentProperty = BindableProperty.Create(nameof(BackgroundContent), typeof(View), typeof(CustomSwitch));

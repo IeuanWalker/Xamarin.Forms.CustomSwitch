@@ -2,7 +2,6 @@
 <switch:CustomSwitch x:Class="Sample.Examples.Other5Switch"
                      xmlns="http://xamarin.com/schemas/2014/forms"
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                     xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                      xmlns:switch="clr-namespace:Switch;assembly=Switch"
                      BackgroundColor="White"
                      CornerRadius="25"
@@ -14,9 +13,6 @@
                      KnobWidth="60"
                      VibrateDuration="20"
                      WidthRequest="120">
-    <switch:CustomSwitch.Border>
-        <pancakeView:Border Thickness="3" Color="DarkGray" />
-    </switch:CustomSwitch.Border>
     <switch:CustomSwitch.BackgroundContent>
         <FlexLayout Margin="15,0,15,0"
                     AlignItems="Center"
