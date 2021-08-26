@@ -5,6 +5,9 @@
 ![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/Xamarin.Forms.Breadcrumb)
 
 
+> Breaking changes in version 2.1.0, please see [release notes](https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch/releases/tag/2.1.0) for more details.
+
+
 This is a switch/ toggle control that would allow you to create any style switch you'd like. <br>
 This component is built on top/ from this great libary - https://github.com/Phenek/Global.InputForms. Fixes a few issues, adds more options for styling and added vibration option accessibility.
 
@@ -40,19 +43,13 @@ So essentially, as the knob moves from one side to the other it is just revealin
 | KnobHeight | The height of the knob on the switch | Default value is **0** |
 | KnobWidth | The width of the knob on the switch | Default value is **0** |
 | KnobColor | The solid color of the knob | Default value is **Color.Default** |
-| KnobColorGradientStops | Sets the gradient colors for the Knob. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **new GradientStopCollection()** |
-| KnobColorGradientStartPoint | Defines the relative start point of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **0,0** |
-| KnobColorGradientEndPoint | Defines the relative endpoint of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **1,0** |
-| KnobBorder | The border for the knob. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Borders](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Borders) <br> Default value is **default(Border)** |
-| KnobCornerRadius | A `CornerRadius` object representing each individual corner's radius for the knob. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Rounded corners](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Rounded-Corners) <br> Default value is **default(CornerRadius)** |
+| KnobBackground | The background for the knob, this supports XF brushes to enable gradients, lean more on [MS docs](https://devblogs.microsoft.com/xamarin/xamarinforms-4-8-gradients-brushes/) | Default value is **Brush.Default** |
+| KnobCornerRadius | A `CornerRadius` object representing each individual corner's radius for the knob. <br> This is property is implemented using XF corner radius object  | More info on how to use this in the [MS docs](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.cornerradius?view=xamarin-forms) <br> Default value is **default(CornerRadius)** |
 | HeightRequest | The Height of the switch  | Default value is **0** |
 | WidthRequest | The width of the switch  | Default value is **0** |
-| CornerRadius | A `CornerRadius` object representing each individual corner's radius for the switch. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Rounded corners](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Rounded-Corners) <br> Default value is **default(CornerRadius)** |
+| CornerRadius | A `CornerRadius` object representing each individual corner's radius for the knob. <br> This is property is implemented using XF corner radius object  | More info on how to use this in the [MS docs](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.cornerradius?view=xamarin-forms) <br> Default value is **default(CornerRadius)** |
 | BackgroundColor | The solid color of the switch | Default value is **Color.Default** |
-| BackgroundColorGradientStops | Sets the gradient colors for the switch. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **new GradientStopCollection()** |
-| BackgroundColorGradientStartPoint | Defines the relative start point of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **0,0** |
-| BackgroundColorGradientEndPoint | Defines the relative endpoint of the gradient. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Gradients](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Gradients) <br> Default value is **1,0** |
-| Border | The border for the switch. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)  | More info on how to use this in the [PancakeView docs - Borders](https://github.com/sthewissen/Xamarin.Forms.PancakeView/wiki/Borders) <br> Default value is **default(Border)** |
+| Background | The background for the switch, this supports XF brushes to enable gradients, lean more on [MS docs](https://devblogs.microsoft.com/xamarin/xamarinforms-4-8-gradients-brushes/) | Default value is **Brush.Default** |
 | BackgroundContent | Sets the content of the switch.  <br> See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it  | Default value is **null** |
 | KnobContent | Sets the content of the knob.  <br> See [samples](/Sample/Sample/Sample/Examples/) for an  idea how to utilise it | Default value is **null** |
 | HorizontalKnobMargin | Adds a margin to the max distance the knob can travel | Default value is **0** |
