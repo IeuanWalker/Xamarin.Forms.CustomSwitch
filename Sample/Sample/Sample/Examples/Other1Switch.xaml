@@ -3,7 +3,6 @@
                      xmlns="http://xamarin.com/schemas/2014/forms"
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                      xmlns:switch="clr-namespace:Switch;assembly=Switch"
-                     xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                      BackgroundColor="White"
                      CornerRadius="5"
                      HeightRequest="40"
@@ -12,12 +11,6 @@
                      KnobWidth="60"
                      VibrateDuration="20"
                      WidthRequest="120">
-    <switch:CustomSwitch.Border>
-        <pancakeView:Border Thickness="3" Color="DarkGray" />
-    </switch:CustomSwitch.Border>
-    <switch:CustomSwitch.KnobBorder>
-        <pancakeView:Border Thickness="3" />
-    </switch:CustomSwitch.KnobBorder>
     <switch:CustomSwitch.BackgroundContent>
         <FlexLayout JustifyContent="SpaceEvenly">
             <Label FontAttributes="Bold"

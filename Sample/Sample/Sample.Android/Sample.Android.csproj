@@ -94,6 +94,10 @@
     <AndroidResource Include="Resources\drawable\SunIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Src\Switch.Android\Switch.Droid.csproj">
+      <Project>{837f2a4d-7a56-4b08-9cc5-8d9dd75a577f}</Project>
+      <Name>Switch.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Src\Switch\Switch.csproj">
       <Project>{3de1ce08-2c75-4e8e-abf3-3e6a44f46820}</Project>
       <Name>Switch</Name>

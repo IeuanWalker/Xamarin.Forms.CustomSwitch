@@ -8,8 +8,6 @@
                      HeightRequest="40"
                      HorizontalKnobMargin="3"
                      KnobColor="Red"
-                     KnobColorGradientEndPoint="0.5,1"
-                     KnobColorGradientStartPoint="1,0"
                      KnobCornerRadius="18"
                      KnobHeight="36"
                      KnobLimit="Boundary"

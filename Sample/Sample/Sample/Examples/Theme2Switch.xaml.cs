@@ -37,19 +37,19 @@ namespace Sample.Examples
                     }
                 }
 
-                BackgroundColorGradientStops = new Xamarin.Forms.PancakeView.GradientStopCollection
+                Background = new LinearGradientBrush(new GradientStopCollection
                 {
-                    new Xamarin.Forms.PancakeView.GradientStop
+                    new GradientStop
                     {
                         Color =  ColorAnimationUtil.ColorAnimation(fromColorGradient1, toColorGradient1, t),
                         Offset = 0
                     },
-                    new Xamarin.Forms.PancakeView.GradientStop
+                    new GradientStop
                     {
                         Color = ColorAnimationUtil.ColorAnimation(fromColorGradient2, toColorGradient2, t),
                         Offset = 1
                     }
-                };
+                });
             };
         }
     }

@@ -2,9 +2,10 @@
 <ContentPage x:Class="Sample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              xmlns:examples="clr-namespace:Sample.Examples"
-             BackgroundColor="#f7f7f7">
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             BackgroundColor="#f7f7f7"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -20,12 +21,15 @@
                                TextDecorations="Underline" />
                     </views:Expander.Header>
                     <Frame Margin="20"
+                           BackgroundColor="Transparent"
                            BorderColor="LightGray"
-                           CornerRadius="20">
-                        <Grid ColumnDefinitions="*,auto" RowDefinitions="auto,auto">
+                           CornerRadius="20"
+                           HasShadow="False">
+                        <Grid ColumnDefinitions="*,auto,auto" RowDefinitions="auto,auto">
                             <Label Grid.Row="0"
                                    Grid.Column="0"
                                    Text="Enable toggle events: "
+                                   TextColor="DarkGray"
                                    VerticalTextAlignment="Center" />
                             <examples:IosSwitch Grid.Row="0"
                                                 Grid.Column="1"
@@ -33,10 +37,17 @@
                             <Label Grid.Row="1"
                                    Grid.Column="0"
                                    Text="Enable toggle commands: "
+                                   TextColor="DarkGray"
                                    VerticalTextAlignment="Center" />
                             <examples:IosSwitch Grid.Row="1"
                                                 Grid.Column="1"
                                                 IsToggled="{Binding EnableCommands}" />
+
+                            <Button Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Clicked="Button_OnClicked"
+                                    Text="Accessibility testing" />
                         </Grid>
                     </Frame>
                 </views:Expander>
@@ -116,6 +127,8 @@
                 <examples:Other2Switch IsToggled="True" />
 
                 <examples:Other3Switch Margin="0,30,0,0"
+                                       AutomationProperties.HelpText="Test 2"
+                                       AutomationProperties.Name="Test"
                                        IsToggled="False"
                                        Toggled="Switch_OnToggled"
                                        ToggledCommand="{Binding ToggleCommand}" />

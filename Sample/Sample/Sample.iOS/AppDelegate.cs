@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Switch.iOS;
 using UIKit;
 
 namespace Sample.iOS
@@ -18,6 +19,8 @@ namespace Sample.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            CustomSwitchRenderer.Init();
+
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
