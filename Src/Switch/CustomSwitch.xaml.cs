@@ -197,12 +197,19 @@ namespace Switch
 
         private static void IsToggledChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is CustomSwitch view)) return;
+            if (!(bindable is CustomSwitch view))
+            {
+                return;
+            }
 
             if ((bool)newValue && view.CurrentState != SwitchStateEnum.Right)
+            {
                 view.GoToRight();
+            }
             else if (!(bool)newValue && view.CurrentState != SwitchStateEnum.Left)
+            {
                 view.GoToLeft();
+            }
 
             view.Toggled?.Invoke(view, new ToggledEventArgs((bool)newValue));
             view.ToggledCommand?.Execute((bool)newValue);
@@ -287,16 +294,22 @@ namespace Switch
             };
 
             if (!double.IsNaN(ev.Percentage))
+            {
                 SwitchPanUpdate?.Invoke(this, ev);
+            }
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             SendSwitchPanUpdatedEventArgs(PanStatusEnum.Started);
             if (CurrentState == SwitchStateEnum.Right)
+            {
                 GoToLeft();
+            }
             else
+            {
                 GoToRight();
+            }
         }
 
         private double _tmpTotalX;
@@ -324,9 +337,14 @@ namespace Switch
                         : Math.Abs(KnobFrame.TranslationX + _xRef) / (2 * _xRef) * 100;
 
                     if (KnobFrame.TranslationX > 0)
+                    {
                         GoToRight(percentage);
+                    }
                     else
+                    {
                         GoToLeft(percentage);
+                    }
+
                     _tmpTotalX = 0;
                     break;
 
@@ -340,14 +358,20 @@ namespace Switch
         {
             base.OnSizeAllocated(width, height);
 
-            if (width <= 0 && height <= 0) return;
+            if (width <= 0 && height <= 0)
+            {
+                return;
+            }
 
             SizeRequestChanged(this, 0, 0);
         }
 
         private static void SizeRequestChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is CustomSwitch view)) return;
+            if (!(bindable is CustomSwitch view))
+            {
+                return;
+            }
 
             // Knob
             view.KnobFrame.WidthRequest = view.KnobWidth < 0.0 ? view.Width / 2 : view.KnobWidth;

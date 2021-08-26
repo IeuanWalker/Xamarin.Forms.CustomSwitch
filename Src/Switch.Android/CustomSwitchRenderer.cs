@@ -24,7 +24,10 @@ namespace Switch.Droid
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement == null) return;
+            if (e.NewElement == null)
+            {
+                return;
+            }
 
             CustomSwitch customSwitch = e.NewElement as CustomSwitch;
 

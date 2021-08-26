@@ -8,8 +8,10 @@
     <owners>Ieuan Walker</owners>
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectUrl>https://github.com/IeuanWalker/Xamarin.Forms.StateButton</projectUrl>
+    <projectUrl>https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch</projectUrl>
+    <repository type="git" url="https://github.com/IeuanWalker/Xamarin.Forms.CustomSwitch.git" branch="master" />
     <description>A control that allows you to design any type of switch/ toggle for Xamarin.Forms</description>
+    <summary>A control that allows you to design any type of switch/ toggle for Xamarin.Forms</summary>
     <tags>xamarin.forms control button xamarin flexible custom switch toggle accessibility a11y</tags>
     <icon>Logo.png</icon>
     <dependencies>
