@@ -65,6 +65,8 @@ So essentially, as the knob moves from one side to the other it is just revealin
 |---|---|
 | ToggledCommand | Triggered when the switch is toggled |
 
+### Accessibility
+Both iOS and android see's this control as a native switch. So from an accessibility POV it behaves like a native switch.
 
 ## Examples
 ### iOS ([xaml](/Sample/Sample/Sample/Examples/IosSwitch.xaml) / [code behind](/Sample/Sample/Sample/Examples/IosSwitch.xaml.cs))
