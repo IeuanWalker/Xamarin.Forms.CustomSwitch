@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace Switch
+﻿namespace Switch
 {
     public class AdvancedFrame : Frame
     {

@@ -1,11 +1,7 @@
 ﻿using Switch.Enums;
 using Switch.Events;
-using System;
 using System.Diagnostics;
 using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Switch
 {
@@ -42,18 +38,18 @@ namespace Switch
         }
 
         public static readonly BindableProperty KnobBackgroundProperty = BindableProperty.Create(nameof(KnobBackground), typeof(Brush), typeof(CustomSwitch), Brush.Default);
-        [TypeConverter(typeof(BrushTypeConverter))]
+        [System.ComponentModel.TypeConverter(typeof(BrushTypeConverter))]
         public Brush KnobBackground
         {
             get => (Brush)GetValue(KnobBackgroundProperty);
             set => SetValue(KnobBackgroundProperty, value);
         }
 
-        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(CustomSwitch), Color.Default);
+        public static readonly BindableProperty KnobColorProperty = BindableProperty.Create(nameof(KnobColor), typeof(Color), typeof(CustomSwitch), null);
 
-        public Color KnobColor
+        public Color? KnobColor
         {
-            get => (Color)GetValue(KnobColorProperty);
+            get => (Color?)GetValue(KnobColorProperty);
             set => SetValue(KnobColorProperty, value);
         }
 
@@ -90,18 +86,18 @@ namespace Switch
         }
 
         public new static readonly BindableProperty BackgroundProperty = BindableProperty.Create(nameof(Background), typeof(Brush), typeof(CustomSwitch), Brush.Default);
-        [TypeConverter(typeof(BrushTypeConverter))]
+        [System.ComponentModel.TypeConverter(typeof(BrushTypeConverter))]
         public new Brush Background
         {
             get => (Brush)GetValue(BackgroundProperty);
             set => SetValue(BackgroundProperty, value);
         }
 
-        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(CustomSwitch), Color.Default);
+        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(CustomSwitch), null);
 
-        public new Color BackgroundColor
+        public new Color? BackgroundColor
         {
-            get => (Color)GetValue(BackgroundColorProperty);
+            get => (Color?)GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
         }
 
@@ -169,9 +165,9 @@ namespace Switch
 
         #region Events
 
-        public event EventHandler<ToggledEventArgs> Toggled;
+        public event EventHandler<ToggledEventArgs>? Toggled;
 
-        public event EventHandler<SwitchPanUpdatedEventArgs> SwitchPanUpdate;
+        public event EventHandler<SwitchPanUpdatedEventArgs>? SwitchPanUpdate;
 
         #endregion Events
 
