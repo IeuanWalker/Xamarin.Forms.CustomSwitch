@@ -214,7 +214,7 @@ namespace Switch
             {
                 if (view.VibrateDuration > 0)
                 {
-                    Vibration.Vibrate(view.VibrateDuration);
+                    //Vibration.Vibrate(view.VibrateDuration);
                 }
             }
             catch (FeatureNotSupportedException ex)
