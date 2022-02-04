@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Android.Content;
 using Android.Graphics.Drawables;
-using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
 using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Platform;
 
