@@ -3,22 +3,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:switch="clr-namespace:Switch;assembly=Switch"
-    BackgroundColor="Gray">
+    BackgroundColor="LightGrey"
+    NavigationPage.HasNavigationBar="false">
 
     <ScrollView>
-        <switch:CustomSwitch
-            x:Name="Test"
-            BackgroundColor="#A6A6A6"
-            CornerRadius="10"
-            HeightRequest="20"
-            HorizontalOptions="Center"
-            KnobColor="#fafafa"
-            KnobCornerRadius="17"
-            KnobHeight="34"
-            KnobLimit="Max"
-            KnobWidth="34"
-            VerticalOptions="Center"
-            VibrateDuration="20"
-            WidthRequest="60" />
+        <StackLayout Padding="25">
+
+            <switch:CustomSwitch
+                x:Name="Test"
+                BackgroundColor="#A6A6A6"
+                CornerRadius="10"
+                HeightRequest="20"
+                HorizontalOptions="Center"
+                KnobColor="#fafafa"
+                KnobCornerRadius="17"
+                KnobHeight="34"
+                KnobLimit="Max"
+                KnobWidth="34"
+                VerticalOptions="Center"
+                VibrateDuration="20"
+                WidthRequest="60" />
+        </StackLayout>
     </ScrollView>
 </ContentPage>

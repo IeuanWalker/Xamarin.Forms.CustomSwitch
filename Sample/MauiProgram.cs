@@ -1,4 +1,6 @@
-﻿namespace Sample
+﻿using Switch;
+
+namespace Sample
 {
     public static class MauiProgram
     {
@@ -10,7 +12,8 @@
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+                })
+                .SwitchInit();
 
             return builder.Build();
         }
