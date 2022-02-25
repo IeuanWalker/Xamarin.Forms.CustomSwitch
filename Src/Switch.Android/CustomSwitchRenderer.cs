@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Android.Content;
+using Android.Runtime;
 using Android.Views;
 using Android.Views.Accessibility;
 using Java.Lang;
@@ -72,6 +73,18 @@ namespace Switch.Droid
         private string GetStateDescription()
         {
             return _a11YSwitch.Checked ? _a11YSwitch.TextOn : _a11YSwitch.TextOff;
+        }
+
+        public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
+            {
+                CustomSwitch customSwitch = Element as CustomSwitch;
+
+                customSwitch.IsToggled = !customSwitch.IsToggled;
+            }
+
+            return base.OnKeyUp(keyCode, e);
         }
     }
 }
