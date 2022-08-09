@@ -17,12 +17,16 @@ Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.CustomSwi
 ```
 Install-Package IeuanWalker.CustomSwitch
 ```
-For android, permission to use the [vibration](https://docs.microsoft.com/en-us/xamarin/essentials/vibrate?tabs=android) feature is needed.
+#### For android
+Permission to use the [vibration](https://docs.microsoft.com/en-us/xamarin/essentials/vibrate?tabs=android) feature is needed.
 Open the AndroidManifest.xml file under the Properties folder and add the following inside of the manifest node.
 ```
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
+#### For iOS
+Add `CustomSwitchRenderer.Init();` to the `AppDelegate.cs > FinishedLaunching()`
 
+____
 
 The best place to learn how to create a new switch is by looking at the [samples](/Sample/Sample/Sample/Examples/).
 
