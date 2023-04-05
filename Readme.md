@@ -1,4 +1,4 @@
-| :warning:        | This NuGet/ repo is now in maintenance mode and support will end once xamarin.forms is no longer supported. _Bug fixes only._ </br> MAUI repo - https://github.com/IeuanWalker/Maui.CustomSwitch  |
+| :warning:        | This NuGet/ repo is now in maintenance mode and support will end once xamarin.forms is no longer supported. _Bug fixes only._ </br> MAUI repo - https://github.com/IeuanWalker/Maui.witch  |
 |---------------|:------------------------|
 
 # Xamarin.Forms.CustomSwitch [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.CustomSwitch)](https://www.nuget.org/packages/IeuanWalker.CustomSwitch) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.CustomSwitch)](https://www.nuget.org/packages/IeuanWalker.CustomSwitch) 
